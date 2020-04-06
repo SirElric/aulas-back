@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>
+            Padoka Hill Valley
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/sale.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="shortcut icon" href="../image/icones/bread.png">
+    </head>
+    <body>
+
+        <!-- import php header function 
+            
+            <?php
+                echo($header);            
+            ?>     
+        
+        -->
+
+        <!-- ... -->
+        <header>
+            <div class="container">
+                <div class="container-header">
+                    <a href="home.html"><img src="../image/icones/bread.png" alt="logo"></a>
+                    <div class="open-menu"></div>
+                    <nav class="menu">
+                        <ul class="list-menu">
+                            <li><a href="product.html" class="linkPages">PRODUTOS</a></li>
+                            <li><a href="about.html"class="linkPages">SOBRE</a></li>
+                            <li><a href="sale.html"class="linkPages">PROMOÇÕES</a></li>
+                            <li><a href="localization.html"class="linkPages">LOCALIZAÇÃO</a></li>
+                            <li><a href="special.html"class="linkPages">ESPECIAL</a></li>
+                            <li><a href="register.html"class="linkPages">CONTATO</a></li>
+                        </ul>
+                    </nav>
+                    <div id="loginBox">
+                        <form name="frmForm" method="post" action="home.php">
+                            <div class="login">
+                                Usuario:<br>
+                                <input class="textInput" type="text" name="txtUser" value="">
+                            </div>
+                            <div class="login">
+                                Senha:<br>
+                                <input class="textInput" type="password" name="txtPassword" value="">
+                            </div>
+                            <div class="confirmButtonBox">
+                                <input class="confirmButton" type="submit" name="btnConfirm" value="OK">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="../js/menuMobile.js"></script>
+        <!-- ... -->
+
+        <main>
+            <div id="mainBox">
+                <div id="contentBox">
+                    
+                    <div id="menuItemBox">
+                        <div class="menuItem ">
+                            <!-- import php produtosMenu function  
+
+                                <?php  
+                                    echo(prudutosMenu());  
+                                    echo(prudutosMenu());  
+                                    echo(prudutosMenu());  
+                                    echo(prudutosMenu());  
+                                    echo(prudutosMenu());  
+                                    echo(prudutosMenu());            
+                                ?>
+                            -->
+                            
+                            <!-- ... -->
+
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+                            <div class='menuProduct'> Item </div>
+
+                            <!-- ... -->
+                        </div>
+                    </div>
+                    <div class="productBox">
+                        <h1>Promoções de hoje:</h1>
+                        <div class='product'>
+                            <img class='imgProduct' src='../image/exemplo.jpg' alt='produto'>
+                            <div class='infProduct'>Nome:</div>
+                            <div class='infProduct'>Descrição:</div>
+                            <div class='oldPrice infProduct'>Preço:</div>
+                            <div class='newPrice infProduct'>Preço:</div>
+                            <button class='btnProduct'>Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="emptyBox">
+                    <div id="redesBox">
+                        <a><img class="redesIcon" src="../image/icones/facebook.png" alt="facebook"></a>
+                        <a><img class="redesIcon" src="../image/icones/instagram.png" alt="instagram"></a>
+                        <a><img class="redesIcon" src="../image/icones/twitter.png" alt="twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- import php footer function 
+            <?php 
+                echo($footer);
+            ?>
+        
+        -->
+        <!-- ... -->
+        <footer >
+            <div class="footerBox">
+                <div id="sistemBox">
+                    <div class="footerButton">Intern Sistem</div>
+                </div>
+                <div id="addressBox">
+                    Address xxxxxxxx-xxxxxx-xxxx
+                </div>
+                <div id="downloadBox">
+                    <div class="footerButton">APK Download</div>
+                </div>
+
+                <a><img class="redesIconMobile" src="../image/icones/facebook.png" alt="facebook"></a>
+                <a><img class="redesIconMobile" src="../image/icones/instagram.png" alt="instagram"></a>
+                <a><img class="redesIconMobile" src="../image/icones/twitter.png" alt="twitter"></a>
+            </div>
+        </footer>
+        <!-- ... -->
+    </body>
+</html>

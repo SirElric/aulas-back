@@ -1,0 +1,43 @@
+.title{
+    padding: 5px;
+    width: auto;
+    color: white;
+}
+.mapBox{
+    width: auto;
+}
+.contact ul li{
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    list-style: none;
+}
+
+#map{
+    width: 100%;
+    height: 450px;
+    border:0;
+}
+@media screen and (min-device-width:1300px){
+    #localizationBox{
+        width: 800px;
+        height: 100%;
+        margin: auto;
+        padding: 50px;
+        background-color: rgba(0, 128, 0, 0.733);
+    }  
+
+    
+
+}
+@media screen and (max-device-width:780px){
+    #localizationBox{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding: 50px;
+        background-color: rgba(0, 128, 0, 0.733);
+    }  
+    
+}

@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+    transition: all .3s ease;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img{
+    width: 100px;
+   height: 90px;
+ }
+ul{
+    list-style: none;
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+header{
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: solid green;
+    border-bottom: solid grey;
+    background: #dddddd;
+    position: fixed;
+    z-index: 999;
+}
+.container-header{
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+.open-menu{
+    display: none;
+}
+nav{
+    width: 100%;
+    max-width: 700px;
+    min-width: 700px;
+}
+nav .list-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .list-menu .linkPages{
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+nav .list-menu .linkPages:hover{
+    color:green;
+}
+nav .list-menu .linkPages::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: green;
+    transition: all .3s ease;
+}
+nav .list-menu .linkPages:hover::before{
+    width: 100%;
+    transition: all .3s ease;
+}
+
+
+#loginBox{
+    width: 300px;
+    height: 90px;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+.login{
+    width: 110px;
+    height: 50px;
+    margin-left: 5px;
+    float: left;
+    font-size: 20px;
+}
+.textInput{
+    width: 100px;
+    height: 25px;
+    border: solid 2px black; 
+    box-sizing: border-box;
+    float: left;
+}
+.confirmButtonBox{
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    float: left; 
+}
+.confirmButton{
+    width: 35px;
+    height: 25px;
+    border: solid 2px black;
+    box-sizing: border-box;
+}
+
+/*Responsivo*/
+@media screen and (max-device-width:780px){
+    .container-header{
+        flex-direction: row-reverse;
+    }
+    #loginBox{
+        display: none;
+    }
+    nav{
+        min-width: 300px;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 128, 0, 0.8);
+    }
+    nav .list-menu{
+        flex-direction: column;
+        margin: 0;
+        padding-top:100px;
+    }
+    nav .list-menu .linkPages{
+        display: block;
+        margin-bottom: 20px;
+        color: white;
+    }
+    .open-menu{
+        background-image: url(../image/icones/menu.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 0;
+        border: none;
+        display: block;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+    }
+    .open-menu.open{
+        background-image: url(../image/icones/cancel.png);
+    }
+    nav.menu.active{
+        left: 0;
+    }
+}
