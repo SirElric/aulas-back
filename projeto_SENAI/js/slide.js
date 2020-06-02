@@ -1,13 +1,13 @@
 "use restrict"
 
-/*function preLoad(){
+function preLoad(){
     imgs=Array("f1.jpg","f2.jpg","f3.jpg","f4.jpg","f5.jpg");
     imgQtde=imgs.lenght;
     for(i=0 ; i<imgQtde ; i++){
         var preloadimg=new Image () ;
         preloadimg.src=imgs[i];
     }
-}*/
+}
 
 function startImage(){
     max=5;
@@ -32,7 +32,7 @@ function endTr(){
 }
 
 function loadImage(image){
-    document.getElementById('carousel-slide').style.backgroundImage="url(../slide/img/"+image+")";
+    document.getElementById('carousel-slide').style.backgroundImage="url(image/slideImg/"+image+")";
 }
 
 function next(){

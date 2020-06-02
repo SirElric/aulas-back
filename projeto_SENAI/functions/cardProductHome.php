@@ -8,7 +8,7 @@
     function cardProduct(){
         $demoProduct="
             <div class='product'>
-                <img class='imgProduct' src='../image/exemplo.jpg' alt='Produto'>
+                <img class='imgProduct' src='image/exemplo.jpg' alt='Produto'>
                 <div class='infProduct'>Nome:</div>
                 <div class='infProduct'>Descrição:</div>
                 <div class='infProduct'>Preço:</div>

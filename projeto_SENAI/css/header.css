@@ -96,6 +96,7 @@ nav .list-menu .linkPages:hover::before{
     border: solid 2px black; 
     box-sizing: border-box;
     float: left;
+    outline: none;
 }
 .confirmButtonBox{
     width: 50px;
@@ -110,10 +111,11 @@ nav .list-menu .linkPages:hover::before{
     height: 25px;
     border: solid 2px black;
     box-sizing: border-box;
+    outline: none;
 }
 
 /*Responsivo*/
-@media screen and (max-device-width:780px){
+@media screen and (max-device-width:1300px){
     .container-header{
         flex-direction: row-reverse;
     }

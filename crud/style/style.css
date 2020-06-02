@@ -1,0 +1,174 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+    color: orange;
+}
+#cadastro{
+    width: 800px;
+    min-height: 900px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: solid 1px rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34);
+}
+#cadastroTitulo{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: orange;
+    width: auto;
+    height: 120px;
+    text-align: center;
+    color: rgb(37, 37, 37);
+    font-size: 1.6em;
+    box-sizing: border-box;
+    padding-top: 30px;
+    cursor: default;
+}
+.campos{
+    width: auto;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.cadastroInformacoesPessoais  {
+    width: 270px;
+    height: 55px;
+    float: left;
+    z-index: 999;
+    background-color: rgb(27, 27, 27);
+    text-align: right;
+    font: bolder 1.1em arial;
+    padding-top: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    cursor: default;
+    
+}
+.cadastroEntradaDeDados {
+    width: 600px;
+    height: auto;
+    margin-left: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    
+  
+}
+
+.cadastroEntradaDeDados input[type=text], .cadastroEntradaDeDados select {
+    height: 30px;
+    margin-left: 10px;
+    width: 300px;
+}
+
+
+
+.cadastroEntradaDeDados textarea{
+    width: 450px;
+    height: 100px;
+    resize: none;
+}
+.enviar input{
+    width: 150px;
+    height: 30px;
+    background-color: orange;
+    color: rgb(37, 37, 37);
+    font: bolder 20px arial;
+    border: none;
+    margin-top: 30px;
+}
+.enviar input:hover{
+    cursor: pointer;
+}
+.enviar{
+    width: 100;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/*consulta de dados*/
+#consultaDeDados{
+    width: 1000px;
+    min-height: 300px;
+    height: auto;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: rgb(37, 37, 37);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+#tblConsulta{
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+#tblTitulo{
+    width: 100%;
+    height: 30px;
+    background-color: orange;
+    color: rgb(32, 32, 32);
+    text-align: center;
+    font-size: 1.6em;
+    cursor: default;
+}
+#tblLinhas{
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+    cursor: default;
+}
+.tblColunas{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    border: solid 1px black;
+}
+.tblImagens{
+    width: auto;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    
+/*    padding: 10px;*/
+/*    box-sizing: border-box;*/
+}
+.fechar, .pesquisar, .editar{
+    width: 30px;
+    height: 30px;
+/*    background-color: black;*/
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.fechar{
+    background-image: url(../img/close.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.pesquisar{
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.editar{
+    background-image: url(../img/edit.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

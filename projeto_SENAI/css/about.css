@@ -11,6 +11,7 @@
     padding: 50px;
     box-sizing: border-box;
     background-color: rgba(0, 128, 0, 0.664);
+    border-radius: 0px 0px 10px 10px;
     
 }
 .title{

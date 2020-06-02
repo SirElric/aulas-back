@@ -1,8 +1,9 @@
 
 <?php
-    require_once('../functions/header.php');
-    require_once('../functions/footer.php');
-    require_once('../functions/cardProductHome.php');
+    require_once('functions/header.php');
+    require_once('functions/footer.php');
+    require_once('functions/cardProductHome.php');
+    require_once('functions/network.php');
 ?>
 
 <!DOCTYPE html>
@@ -13,19 +14,19 @@
         </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/footer.css">
-        <link rel="stylesheet" type="text/css" href="../css/header.css">
-        <link rel="stylesheet" type="text/css" href="../css/home.css">
-        <script src="../slide/slide.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <script src="js/slide.js"></script>
         
         
-        <link rel="shortcut icon" href="../image/icones/bread.png">
+        <link rel="shortcut icon" href="image/icones/bread.png">
     </head>
     <body onload="startImage()">
 
         <!-- import php header -->            
-        <?php echo(headerMenu()); ?>
+        <?php echo(headerMenuHome()); ?>
 
         <main>
             <div id="mainBox">
@@ -71,14 +72,9 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="emptyBox">
-                    <div id="redesBox">
-                        <a><img class="redesIcon" src="../image/icones/facebook.png" alt="facebook"></a>
-                        <a><img class="redesIcon" src="../image/icones/instagram.png" alt="instagram"></a>
-                        <a><img class="redesIcon" src="../image/icones/twitter.png" alt="twitter"></a>
-                    </div>
+                    <?php echo(socialNetworkHome()); ?>    
                 </div>
             </div>
         </main>

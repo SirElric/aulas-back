@@ -1,31 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 @media screen and (min-device-width:1300px){
     #registerBox{
         width: 90%;
-        height: 600px;
+        height: auto;
         margin: auto;
-        padding: 50px;
         background-color: rgba(0, 128, 0, 0.664);
+        border-radius: 0px 0px 10px 10px;
+        
         
     }
+    form{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    }
     .registerPart{
-        width: 500px;
+        width: 50%;
         height: auto;
         margin-left: 5px;
-        float: left;
     }
     .infoInput{
         width: 350px;
-        height: 75px;
-        line-height: 25px;
+        height: auto;
         margin: auto;
+        margin-top: 20px;
         color: white;
         font-size: 20px;
-        margin-bottom: 10px;
+        
     }
     .inputText{
         width: 350px;
         height: 30px;
         font-size: 20px;
+        outline: none;
     }
     .radioOption{
         width: 20px;
@@ -36,7 +48,7 @@
     }
     .infoType{
         font-size: 25px;
-        margin-bottom: 5px;
+        
         color: white;
     }
 
@@ -56,17 +68,20 @@
         width: 80px;
         height: 40px;
         background-color: green;
+        border-radius: 10px 10px 0px 0px;
         border: none;
         color: white;
         font-size: 20px;
+        outline: none;
     }
     .submit:hover{
         background-color: white;
         color: green;
     }
+    
 }
 
-@media screen and (max-device-width:780px){
+@media screen and (max-device-width:1300px){
     #registerBox{
         width: 100%;
         height: 100%;

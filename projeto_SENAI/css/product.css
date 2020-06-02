@@ -11,21 +11,21 @@ p{
 
 @media screen and (min-device-width:1300px){
 
+    #contentBox{
+        display: flex;
+    }
+
     #menuItemBox{
         width: 20%;
-        min-height: 750px;
         height: auto;
         padding-top: 10px;
-        border-right: solid black;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        float: left;
+        background-color: rgba(0, 128, 0, 0.733);
         box-sizing: border-box;
+        border-radius: 0px 0px 20px 0px;
     }
     .menuItem{
         width: 100%;
         min-height: 500px;
-        padding: 10px;
         box-sizing: border-box;
         height: auto;
     }
@@ -33,7 +33,6 @@ p{
         width: 100%;
         height: 50px;
         margin-bottom: 10px;
-        background-color: rgba(0, 128, 0, 0.733);
         font-size: 26px;
         color: white;
         line-height: 50px;
@@ -51,7 +50,6 @@ p{
     .productBox{
         width: 1000px;
         height: 500px;
-        margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -59,6 +57,7 @@ p{
         padding: 25px;
         box-sizing: border-box;
         background-color: rgba(0, 128, 0, 0.664);
+        border-radius: 0px 0px 10px 10px;
     }
     .product{
         width: inherit;
@@ -78,7 +77,7 @@ p{
     
 }
 
-@media screen and (max-device-width:780px){
+@media screen and (max-device-width:1300px){
     #menuItemBox{
         display: none;
     }

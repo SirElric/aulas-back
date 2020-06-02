@@ -2,6 +2,7 @@
     require_once('../functions/header.php');
     require_once('../functions/footer.php');
     require_once('../functions/cardProductInfo.php');
+    require_once('../functions/network.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,11 +50,7 @@
                     </div>
                 </div>
                 <div class="emptyBox">
-                    <div id="redesBox">
-                        <a><img class="redesIcon" src="../image/icones/facebook.png" alt="facebook"></a>
-                        <a><img class="redesIcon" src="../image/icones/instagram.png" alt="instagram"></a>
-                        <a><img class="redesIcon" src="../image/icones/twitter.png" alt="twitter"></a>
-                    </div>
+                    <?php echo(socialNetwork()); ?>
                 </div>
             </div>
         </main>

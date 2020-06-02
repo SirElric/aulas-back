@@ -6,21 +6,24 @@ h1{
 }
 
 @media screen and (min-device-width:1300px){
+    h1{
+        border-radius: 0px 0px 10px 10px;
+    }
+    #contentBox{
+        display: flex;
+    }
+
     #menuItemBox{
         width: 20%;
-        min-height: 750px;
         height: auto;
         padding-top: 10px;
-        border-right: solid black;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        float: left;
+        background-color: rgba(0, 128, 0, 0.733);
         box-sizing: border-box;
+        border-radius: 0px 0px 20px 0px;
     }
     .menuItem{
         width: 100%;
         min-height: 500px;
-        padding: 10px;
         box-sizing: border-box;
         height: auto;
     }
@@ -28,7 +31,6 @@ h1{
         width: 100%;
         height: 50px;
         margin-bottom: 10px;
-        background-color: rgba(0, 128, 0, 0.733);
         font-size: 26px;
         color: white;
         line-height: 50px;
@@ -45,24 +47,28 @@ h1{
     .productBox{
         width: 80%;
         height: auto;
-        padding: 10px;
-        padding-top: 50px;
+        padding: 5px;
+        padding-top: 0;
         float: left;
     }
     .product{
         width: 250px;
         height: auto;
         background-color: rgba(0, 128, 0, 0.733);
+        border-radius: 10px;
         margin-left: 20px;
         margin-bottom: 20px;
-        padding: 5px;
         box-sizing: border-box;
         float: left;
     }
+    .product:hover{
+        transition: 0.5s;
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.397)
+    }
     .imgProduct{
-        width: 150px;
+        width: 100%;
         height: 150px;
-        
+        border-radius: 10px 10px 0px 0px;
         background-color: #484848;
     }
     .infProduct{
@@ -71,7 +77,7 @@ h1{
         height: 35px;
         padding: 5px;
         box-sizing: border-box;
-        color: black;
+        color: rgb(255, 255, 255);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
     }
@@ -85,6 +91,7 @@ h1{
         margin-left: 100px;
         font-weight: bold;
         background-color: rgba(0, 128, 0, 0.733);
+        border-radius: 10px 10px 0px 0px;
         color: #ffffff;
         border: none;
     }
@@ -95,7 +102,7 @@ h1{
         
     }
 }
-@media screen and (max-device-width:780px){
+@media screen and (max-device-width:1300px){
     #menuItemBox{
         display: none;
     }
