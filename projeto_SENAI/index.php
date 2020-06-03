@@ -65,9 +65,7 @@
                                     echo(cardProduct()); 
                                     echo(cardProduct()); 
                                     echo(cardProduct()); 
-                                    echo(cardProduct()); 
-                                    echo(cardProduct()); 
-                                    echo(cardProduct());           
+                                              
                                 ?>                          
                             </div>
                         </div>

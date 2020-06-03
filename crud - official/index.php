@@ -36,11 +36,12 @@ if(isset($_GET['modo']))
             //Script para buscar no BD pelo id
             //$sql = "select * from tblcontatos where idContatos = ".$id;
             $sql="
-            SELECT tblcontatos.idContato, tblcontatos.nome as nomeContato, tblcontatos.celular, tblcontatos.email, 
-            tblestados.sigla, tblestados.nome as nomeEstado
-            FROM tblcontatos, tblestados
-            WHERE tblestados.idEstado = tblcontatos.idEstado
-            and tblContatos.idContato = ".$id;
+                SELECT tblcontatos.*, 
+                tblestados.nome as nomeEstado
+                FROM tblcontatos, tblestados
+                WHERE tblestados.idEstado = tblcontatos.idEstado
+                and tblcontatos.idContato = ".$id 
+            ;  
 
             //Executa o script no BD
             $selectDados = mysqli_query($conex, $sql); 
@@ -153,7 +154,7 @@ if(isset($_GET['modo']))
                                     if($_GET['modo']=='consultaEditar')
                                     {
                                         ?>
-                                            <option value="<?=$idEstado?>" selected><? =$nomeEstado ?>
+                                            <option value="<?=$idEstado?>" selected><?=$nomeEstado?>
                                             </option>
                                         <?php
                                     }
@@ -299,7 +300,7 @@ if(isset($_GET['modo']))
                                         <div class="fechar"></div>
                                     </a>
                                     <div class="pesquisar"></div>
-                                    <div class="editar"></div>
+                                    
                                     <a href="index.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>">
                                         <div class="editar"></div>
                                     </a>

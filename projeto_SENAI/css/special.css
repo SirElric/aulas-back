@@ -20,7 +20,7 @@ p{
         flex-direction: column;
         padding: 25px;
         box-sizing: border-box;
-        background-color: rgba(0, 128, 0, 0.664);
+        background-color: rgba(26, 13, 0, 0.822);
         border-radius: 0px 0px 10px 10px;
     }
     .product{
@@ -38,6 +38,9 @@ p{
         color: white;
         box-sizing: border-box;
     }
+    .productImg{
+        border-radius: 20px;
+    }
     
 }
 @media screen and (max-device-width:1300px){
@@ -47,7 +50,7 @@ p{
         margin-top: 50px;
         padding: 25px;
         box-sizing: border-box;
-        background-color: rgba(0, 128, 0, 0.664);
+        background-color: rgba(26, 13, 0, 0.822);
     }
     .product{
         width: 100%;

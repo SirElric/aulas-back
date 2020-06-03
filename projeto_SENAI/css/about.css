@@ -10,7 +10,8 @@
     margin: auto;
     padding: 50px;
     box-sizing: border-box;
-    background-color: rgba(0, 128, 0, 0.664);
+    background-color: rgba(26, 13, 0, 0.822);
+    /*background-color: rgba(0, 128, 0, 0.664);*/
     border-radius: 0px 0px 10px 10px;
     
 }
@@ -26,7 +27,7 @@
     font-size: 20px;
     color: rgb(255, 255, 255);
 }
-@media screen and (min-device-width:1300px){
+@media screen and (max-device-width:1300px){
     /* about_page */
     
     .textBox{
@@ -36,7 +37,7 @@
         padding-left: 50px;
         padding-right: 50px;
         box-sizing: border-box;
-        background-color: rgba(0, 128, 0, 0.664);
+        background-color: rgba(26, 13, 0, 0.822);
         
     }
     .title{

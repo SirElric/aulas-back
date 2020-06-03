@@ -1,0 +1,10 @@
+txtName
+txtTelephone
+txtCellphone
+txtProfession
+rdoGender
+txtEmail
+txtHomePage
+txtFacebook
+obsMessage
+rdoMessage

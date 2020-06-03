@@ -3,13 +3,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+::-webkit-input-placeholder{
+    color: grey;
+    font: bolder 2vh arial;
+    text-align: center;
+}
 @media screen and (min-device-width:1300px){
     #registerBox{
         width: 90%;
         height: auto;
         margin: auto;
-        background-color: rgba(0, 128, 0, 0.664);
+        background-color: rgba(26, 13, 0, 0.822);
         border-radius: 0px 0px 10px 10px;
+    cursor: default;
         
         
     }
@@ -37,7 +43,13 @@
         width: 350px;
         height: 30px;
         font-size: 20px;
+        padding-left: 10px;
         outline: none;
+    }
+    .inputText:focus, #textObs:focus{
+        border: solid 2px rgba(26, 13, 0);
+        background-color: rgba(26, 13, 0);
+        color: white;
     }
     .radioOption{
         width: 20px;
@@ -63,21 +75,27 @@
         height: 110px;
         font-size: 20px;
         padding: 5px;
+        outline: none;
     }
     .submit{
         width: 80px;
         height: 40px;
-        background-color: green;
+        background-color: rgba(26, 13, 0);
         border-radius: 10px 10px 0px 0px;
         border: none;
         color: white;
         font-size: 20px;
         outline: none;
+    
+
     }
     .submit:hover{
         background-color: white;
-        color: green;
+        color: rgba(26, 13, 0);
+        cursor: pointer;
     }
+
+    
     
 }
 
@@ -87,7 +105,7 @@
         height: 100%;
         margin: auto;
         padding: 50px;
-        background-color: rgba(0, 128, 0, 0.664);
+        background-color: rgba(26, 13, 0, 0.822);
         
     }
     .registerPart{
@@ -135,7 +153,7 @@
     .submit{
         width: 80px;
         height: 40px;
-        background-color: green;
+        background-color: rgba(26, 13, 0);
         border: none;
         color: white;
         font-size: 20px;
