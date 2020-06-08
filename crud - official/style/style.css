@@ -6,7 +6,8 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    background-color: #2a2a2e;
     color: orange;
 }
 #cadastro{
@@ -59,7 +60,7 @@ body{
 .cadastroEntradaDeDados {
     width: 600px;
     height: auto;
-    margin-left: 10px;
+    padding-left: 10px;
     padding-top: 10px;
     box-sizing: border-box;
     
@@ -70,6 +71,8 @@ body{
     height: 30px;
     margin-left: 10px;
     width: 300px;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 
@@ -112,6 +115,7 @@ body{
     margin-right: auto;
     margin-top: 60px;
     margin-bottom: 10px;
+    padding: 10px;
 }
 #tblConsulta{
     width: 100%;

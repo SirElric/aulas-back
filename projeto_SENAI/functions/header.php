@@ -10,11 +10,11 @@
                 <nav class='menu'>
                     <ul class='list-menu'>
                         <li><a href='product.php' class='linkPages'>PRODUTOS</a></li>
-                        <li><a href='about.php'class='linkPages'>SOBRE</a></li>
-                        <li><a href='sale.php'class='linkPages'>PROMOÇÕES</a></li>
-                        <li><a href='localization.php'class='linkPages'>LOCALIZAÇÃO</a></li>
-                        <li><a href='special.php'class='linkPages'>ESPECIAL</a></li>
-                        <li><a href='register.php'class='linkPages'>CONTATO</a></li>
+                        <li><a href='about.php' class='linkPages'>SOBRE</a></li>
+                        <li><a href='sale.php' class='linkPages'>PROMOÇÕES</a></li>
+                        <li><a href='localization.php' class='linkPages'>LOCALIZAÇÃO</a></li>
+                        <li><a href='special.php' class='linkPages'>ESPECIAL</a></li>
+                        <li><a href='register.php' class='linkPages'>CONTATO</a></li>
                     </ul>
                 </nav>
                 <div id='loginBox'>
@@ -50,11 +50,11 @@
                 <nav class='menu'>
                     <ul class='list-menu'>
                         <li><a href='pages/product.php' class='linkPages'>PRODUTOS</a></li>
-                        <li><a href='pages/about.php'class='linkPages'>SOBRE</a></li>
-                        <li><a href='pages/sale.php'class='linkPages'>PROMOÇÕES</a></li>
-                        <li><a href='pages/localization.php'class='linkPages'>LOCALIZAÇÃO</a></li>
-                        <li><a href='pages/special.php'class='linkPages'>ESPECIAL</a></li>
-                        <li><a href='pages/register.php'class='linkPages'>CONTATO</a></li>
+                        <li><a href='pages/about.php' class='linkPages'>SOBRE</a></li>
+                        <li><a href='pages/sale.php' class='linkPages'>PROMOÇÕES</a></li>
+                        <li><a href='pages/localization.php' class='linkPages'>LOCALIZAÇÃO</a></li>
+                        <li><a href='pages/special.php' class='linkPages'>ESPECIAL</a></li>
+                        <li><a href='pages/register.php' class='linkPages'>CONTATO</a></li>
                     </ul>
                 </nav>
                 <div id='loginBox'>

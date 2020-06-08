@@ -78,6 +78,6 @@
         </main>
 
         <!-- import php footer function -->
-        <?php echo(footerMenu()); ?>
+        <?php echo(footerMenuHome()); ?>
     </body>
 </html>

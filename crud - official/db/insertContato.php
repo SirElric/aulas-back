@@ -14,10 +14,7 @@
 
             //Valida se o formulário foi submetido pelo usuário
             if(isset($_POST['btnEnviar']))
-            {
-                
-
-                
+            {                
                 //Resgatando os dados fornecidos pelo usuario, utilizando o metodo POST
                 $nome = $_POST['txtNome'];
                 $endereco = $_POST['txtEndereco'];
@@ -54,8 +51,6 @@
                                         '".$nome."', '".$endereco."', '".$bairro."', '".$cep."', ".$idEstado.",
                                         '".$telefone."', '".$celular."', '".$email."', '".$sexo."', '".$dtNascimentoAmericano."', '".$obs."' 
                                     )";
-                
-
 
                 /* Executa o Script no BD */    
                 if(mysqli_query($conex, $sql))

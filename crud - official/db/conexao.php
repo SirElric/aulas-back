@@ -4,7 +4,7 @@ function conexaoMysql ()
 {
     $server = 'localhost';
     $user = 'root';
-    $password = '';
+    $password = 'bcd127';
     $database = 'dbContatos20201A';
     
     /*

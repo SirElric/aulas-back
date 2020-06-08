@@ -4,7 +4,7 @@
 
         $server='localhost';
         $user='root';
-        $password='';
+        $password='bcd127';
         $database='dbPadokaHillValley';
 
         $connection = mysqli_connect($server, $user, $password, $database);

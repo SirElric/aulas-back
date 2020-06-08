@@ -7,38 +7,36 @@
     
     $connect = connectionMySQL();
 
-    if(isset($_POST['submit']))   
+    if(isset($_POST['submitBtn']))   
     {
-        $nome = $_POST['txtNome'];
+        $nome = $_POST['txtName'];
         $telefone = $_POST['txtTelephone'];
         $celular = $_POST['txtCellphone'];
         $profissao = $_POST['txtProfession'];
         $sexo = $_POST['rdoGender'];
         $email = $_POST['txtEmail'];
-        $homePage = ['txtHomePage'];
-        $facebook = ['txtFacebook'];
-        $message = $_POST['txtMessage'];
-        $messageOption = $_POST['rdoMessage'];
+        $homePage = $_POST['txtHomePage'];
+        $facebook = $_POST['txtFacebook'];
+        $mensagem = $_POST['obsMessage'];
+        $opcaoMensagem = $_POST['rdoMessage'];
 
-        $sql = "
-            insert into tblContato 
+        $sql = "insert into tblContato
                 (
                     nameContact, telephone, cellphone, email, homePage, facebook, message,
                     optionMessage, gender, profession
                 )
                 values 
                 (
-                    '".$nome."', '".$telefone."', '".$celular."', '".$email."', ".$homePage.",
-                    '".$facebook."', '".$message."', '".$messageOption."', '".$sexo."',
+                    '".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."',
+                    '".$facebook."', '".$mensagem."', '".$opcaoMensagem."', '".$sexo."',
                     '".$profissao."' 
                 )";
-
+                
         if(mysqli_query($connect, $sql))
             {
                 echo("
                     <script> 
                         alert('Registro inserido com sucesso!');
-                        location.href = 'index.php';
                     </script>
                             
                 ");
@@ -72,7 +70,7 @@
             <div id="mainBox">
                 <div id="contentBox">
                     <div id="registerBox">
-                        <form name="frmRegister" action="register.html" method="post">
+                        <form name="frmRegister" action="register.php" method="post">
                             <div class="registerPart">
                                 <div class="infoInput">
                                     <h1 class="infoType">Nome:</h1>
@@ -88,7 +86,7 @@
                                 </div>
                                 <div class="infoInput">
                                     <h1 class="infoType">Profissão:</h1>
-                                    <input type="text" class="inputText" name="txtProfission" value="" placeholder="Obrigatorio">
+                                    <input type="text" class="inputText" name="txtProfession" value="" placeholder="Obrigatorio">
                                 </div>
                                 <div class="infoInput">
                                     <h1 class="infoType">Genero:</h1>
@@ -116,7 +114,7 @@
                                     <input type="radio" class="radioOption" name="rdoMessage" value="c">Critica
                                 </div>
                                 <div class="infoInput">
-                                    <input type="submit"  class="submit" name="submit" value="Enviar">
+                                    <input type="submit"  class="submit" name="submitBtn" value="Enviar">
                                 </div>
                             </div>
                         </form>

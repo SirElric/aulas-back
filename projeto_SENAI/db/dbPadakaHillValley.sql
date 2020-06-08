@@ -16,3 +16,5 @@ create table tblContato(
     profession varchar(100),
     primary key (idContact)
 );
+
+

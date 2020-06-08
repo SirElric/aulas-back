@@ -1,4 +1,21 @@
 <?php 
+
+//Declarando todas as variaveis
+
+$idEstado = 0;
+$nome = null;
+$endereco = null;
+$bairro = null;
+$cep = null;
+$telefone = null;
+$celular = null;
+$email = null;
+$dtNascBr = null;
+$sexo = null;
+$obs = null;
+
+//variavel
+$action ="db/insertContato.php?modo=inserir";
 /*Conexão com o Banco de Dados
     Temos 3 bibliotecas de conexão com o Mysql
     
@@ -16,7 +33,7 @@
 */
 
 //Import da biblioteca de conexão
-require_once('bd/conexao.php');
+require_once('db/conexao.php');
 
 //Abre a conexão com o BD
 $conex = conexaoMysql();
@@ -59,12 +76,18 @@ if(isset($_GET['modo']))
                 $telefone = $rsListContatos['telefone'];
                 $celular = $rsListContatos['celular'];
                 $email = $rsListContatos['email'];
-                $dt = $rsListContatos['dtNasc'];
                 $sexo = strtoupper($rsListContatos['sexo']);
                 $obs = $rsListContatos['obs'];
 
+                $dtNasc = explode("-", $rsListContatos['dtNasc']);
+                $dtNascBr = $dtNasc[2]."/".$dtNasc[1]."/".$dtNasc[0];
+
                 $idEstado = $rsListContatos['idEstado'];
                 $nomeEstado = $rsListContatos['nomeEstado'];
+
+                //ação que sera colocada no form para atualizar o registro que esta sendo visualizado, estão enviando
+                //para pagina de update o id de registro;
+                $action = "db/updateContato.php?modo=atualizar&id=".$rsListContatos['idContato'];
             }
         }
     }
@@ -107,7 +130,7 @@ if(isset($_GET['modo']))
                 <h1> Cadastro de Contatos </h1>
             </div>
             <div id="cadastroInformacoes">
-                <form action="bd/insertContato.php?modo=inserir" name="frmCadastro" method="post">
+                <form action="<?=$action?>" name="frmCadastro" method="post">
                     <div class="campos">
                         <div class="cadastroInformacoesPessoais">
                             <p> Nome: </p>
@@ -121,7 +144,7 @@ if(isset($_GET['modo']))
                             <p> Endereço: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtEndereco" value="<?=$endereco?>">
+                            <input type="text" name="txtEndereco" value="<?=$endereco?>" placeholder="Insira seu Endereço">
                         </div>
                     </div>
                     <div class="campos">
@@ -129,7 +152,7 @@ if(isset($_GET['modo']))
                             <p> Bairro: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtBairro" value="<?=$bairro?>">
+                            <input type="text" name="txtBairro" value="<?=$bairro?>" placeholder="Insira seu Bairro">
                         </div>
                     </div>
                     <div class="campos">
@@ -137,7 +160,7 @@ if(isset($_GET['modo']))
                             <p> Cep: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtCep" value="<?=$cep?>">
+                            <input type="text" name="txtCep" value="<?=$cep?>" placeholder="Insira seu CEP">
                         </div>
                     </div>
                     <div class="campos">
@@ -166,21 +189,23 @@ if(isset($_GET['modo']))
                                 
                                 
                                 //Script para listar todos os estados em ordem crescente pelo nome
-                                $sql = "select * from tblestados order by nome";
+                                //where idestado <> ".$idEstado." traz todos os estados diferentes do que o selecionado
+                                $sql = "select * from tblestados
+                                        where idestado <> ".$idEstado."
+                                        order by nome";
                                 
                                 //Executa o scrip no BD
                                 $selectEstados = mysqli_query($conex, $sql);
                                 
-                                /*
+                                /*Converte o resultado do BD usando um metodo de fetch para conseguirmos
+                                 trabalhar os dados no PHP
                                 
-                                Converte o resultado do BD usando um metodo de fetch para conseguirmos trabalhar os dados no PHP
-                                
-                                Ex:
-                                    mysqli_fetch_array()
-                                    mysqli_fetch_assoc()
-                                    mysqli_fetch_object()
-                                    
-                                RS (Record Set)
+                                    Ex:
+                                        mysqli_fetch_array()
+                                        mysqli_fetch_assoc()
+                                        mysqli_fetch_object()
+                                        
+                                    RS (Record Set)
                                 */
                                 
                                 //Estrutura de repetição para carregar os estados no objeto select
@@ -209,7 +234,7 @@ if(isset($_GET['modo']))
                             <p> Celular: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtCelular" value="<?=$celular?>">
+                            <input type="text" name="txtCelular" value="<?=$celular?>" pattern="[0-9]{3} [0-9]{5}-[0-9]{4}" placeholder="Formato exigido: 999 99999-9999">
                         </div>
                     </div>
                     <div class="campos">
@@ -217,7 +242,7 @@ if(isset($_GET['modo']))
                             <p> Email: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtEmail" value="<?=$email?>">
+                            <input type="text" name="txtEmail" value="<?=$email?>" placeholder="Insira seu e-mail">
                         </div>
                     </div>
                     <div class="campos">
@@ -225,7 +250,7 @@ if(isset($_GET['modo']))
                             <p> Data de Nascimento: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtNascimento" value="">
+                            <input type="text" name="txtNascimento" value="<?=$dtNascBr?>" placeholder="Insira a sua data de nascimento">
                         </div>
                     </div>
                     <div class="campos">
@@ -296,7 +321,7 @@ if(isset($_GET['modo']))
                             <td class="tblColunas"> 
                                 <div class="tblImagens">
                                     <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="bd/deleteContato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
+                                    " href="db/deleteContato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
                                         <div class="fechar"></div>
                                     </a>
                                     <div class="pesquisar"></div>
