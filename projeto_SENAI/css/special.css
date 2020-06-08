@@ -67,4 +67,7 @@ p{
         color: white;
         box-sizing: border-box;
     }
+    .productImg{
+        border-radius: 10px;
+    }
 }

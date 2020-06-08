@@ -102,7 +102,7 @@
 @media screen and (max-device-width:1300px){
     #registerBox{
         width: 100%;
-        height: 100%;
+        height: auto;
         margin: auto;
         padding: 50px;
         background-color: rgba(26, 13, 0, 0.822);
@@ -124,8 +124,13 @@
     .inputText{
         width: 100%;
         height: 30px;
-        
+        padding-left: 10px;
         font-size: 20px;
+    }
+    .inputText:focus, #textObs:focus{
+        border: solid 2px rgba(26, 13, 0);
+        background-color: rgba(26, 13, 0);
+        color: white;
     }
     .radioOption{
         width: 20px;
@@ -157,5 +162,6 @@
         border: none;
         color: white;
         font-size: 20px;
+        border-radius: 10px;
     }
 }
