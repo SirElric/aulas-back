@@ -20,16 +20,22 @@
         <nav>
             <div class="menu">
                 <div class="option">
-                    <img src="img/admin.png" alt="" class="iconOption">
-                    <h1 class="titleOption">Adm. Conteudo</h1>
+                    <a href="">
+                        <img src="img/admin.png" alt="Adm. Conteudo" class="iconOption">
+                        <h1 class="titleOption">Adm. Conteudo</h1>
+                    </a>
                 </div>
                 <div class="option">
-                    <img src="img/tell.png" alt="" class="iconOption">
-                    <h1 class="titleOption">Adm. Fale Conosco</h1>
+                    <a href="contact.php">
+                        <img src="img/tell.png" alt="Adm. FaleConosco" class="iconOption">
+                        <h1 class="titleOption">Adm. Fale Conosco</h1>
+                    </a>
                 </div>
                 <div class="option">
-                    <img src="img/user.png" alt="" class="iconOption">
-                    <h1 class="titleOption">Adm. Usuarios</h1>
+                    <a href="">
+                        <img src="img/user.png" alt="Adm. Usuarios" class="iconOption">
+                        <h1 class="titleOption">Adm. Usuarios</h1>
+                    </a>
                 </div>
             </div>
             <div class="logout">
@@ -44,15 +50,6 @@
     <footer>
         <h1 class="subTitle">
             DESENVOLVIDO POR ERICK MATHEUS
-            <!--Ícones feitos por 
-            <a href="https://www.flaticon.com/br/icone-gratis/balao-de-fala_126435?term=telephone&page=1&position=11" title="Gregor Cresnar">
-                Gregor Cresnar
-            </a>
-            from 
-            <a href="https://www.flaticon.com/br/" title="Flaticon">
-                     www.flaticon.com
-            </a>-->
-
         </h2>
     </footer>
 </body>

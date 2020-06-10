@@ -30,4 +30,6 @@ delete from tblcontato where idContact = 1;
 
 ALTER USER 'root'@'localhost' identified with mysql_native_password by 'bcd127';
 
+select tblContato.idContact, tblcontato.nameContact, tblcontato.cellphone, tblcontato.email FROM tblcontato order by tblcontato.idContact desc; 
+
 
