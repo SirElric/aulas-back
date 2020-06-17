@@ -8,7 +8,7 @@ alter table tblestados drop column teste;
 alter table tblContato add profession varchar(100) not null;
 
 #mostra a estrutura de uma table
-show create table tblestados;
+show create table tblContact;
 
 #mostra todas tabelas de um db
 show tables;
@@ -32,4 +32,8 @@ ALTER USER 'root'@'localhost' identified with mysql_native_password by 'bcd127';
 
 select tblContato.idContact, tblcontato.nameContact, tblcontato.cellphone, tblcontato.email FROM tblcontato order by tblcontato.idContact desc; 
 
+select * from tblContact where tblContact.idContact = 1;
 
+select tblContact.idContact, tblContact.clientname, tblContact.cellphone, tblContact.OptionMessage
+FROM tblcontact
+order by tblContact.OptionMessage asc; 

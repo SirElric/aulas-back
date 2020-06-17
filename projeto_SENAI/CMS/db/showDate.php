@@ -35,12 +35,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../css/showContact.css">
     <script src="../js/jquery.js"></script>
     <script>
         $(document).ready(function(){
                 $('.exit').click(function(){
-                    $('#modal').fadeOut(500);
+                    $('#showContact').fadeOut(500);
 
                 });
             });
@@ -52,7 +52,7 @@
         <table class="tblInfo">
             <tr class="trtitle">
                 <td class="trtitle" colspan="2">
-                    <h1 class="title">Contato</h1>
+                    <h1 class="titleBlack">Contato</h1>
                     <div class="exit"></div>
                 </td>
             </tr>
@@ -73,30 +73,10 @@
                 <td class="tdInfo"><?=$profession?></td>
             </tr>
             <tr class="trInfo">
-                <td class="tdType">Estado:</td>
-                <td class="tdInfo"><?=$estado?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Telefone:</td>
-                <td class="tdInfo"><?=$telefone?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Celular:</td>
-                <td class="tdInfo"><?=$celular?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">E-mail:</td>
-                <td class="tdInfo"><?=$email?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Data Nascimento:</td>
-                <td class="tdInfo"><?=$dtNascBr?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Sexo:</td>
+                <td class="tdType">Gênero:</td>
                 <td class="tdInfo">
                     <?php 
-                        if($sexo == 'F'){
+                        if($gender == '0'){
                             echo('Feminino');
                         }else{
                             echo('Masculino');
@@ -105,8 +85,32 @@
                 </td>
             </tr>
             <tr class="trInfo">
-                <td class="tdType">Observações:</td>
-                <td class="tdInfo"><?=$obs?></td>
+                <td class="tdType">E-mail:</td>
+                <td class="tdInfo"><?=$email?></td>
+            </tr>
+            <tr class="trInfo">
+                <td class="tdType">HomePage:</td>
+                <td class="tdInfo"><?=$homePage?></td>
+            </tr>
+            <tr class="trInfo">
+                <td class="tdType">FaceBook:</td>
+                <td class="tdInfo"><?=$facebook?></td>
+            </tr>
+            <tr class="trInfo">
+                <td class="tdInfo">
+                    <?php 
+                        if($optionMessage == '0'){
+                            echo('Sugestão');
+                        }else{
+                            echo('Critica');
+                        } 
+                    ?>
+                </td>
+                <td class="tdInfo">
+                    <div class="divInfo">
+                        <?=$message?>
+                    </div>
+                </td>
             </tr>
         </table>
     </div>

@@ -1,7 +1,7 @@
 <?php
-    require_once('../db/connection.php');
-
-    $connect = connectionMysql()
+    require_once('db/connection.php');
+    $connect = connectionMysql();
+    
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/showContact.css">
     <title>CMS - Sistema de Gerenciamento do Site</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.view').click(function(){
+                $('#showContact').fadeIn(1000);
+            });
+        });
+
+        function showContact(idContact){
+            $.ajax({
+                type: "POST",
+                url: "db/showDate.php",
+                data: {modo:'view', id:idContact},
+                success: function (dados){
+                    $('#showContent').html(dados);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <div id="showContact">
-        <div id="showContactContent"></div>
+        <div id="showContent"></div>
     </div>
     <header>
         <h1 class="subTitle">
@@ -30,7 +50,7 @@
         <nav>
             <div class="menu">
                 <div class="option">
-                    <a href="">
+                    <a href="index.php">
                         <img src="img/admin.png" alt="Adm. Conteudo" class="iconOption">
                         <h1 class="titleOption">Adm. Conteudo</h1>
                     </a>
@@ -54,62 +74,87 @@
             </div>
         </nav>
         <div class="content">
-            <div id="boxTitulo" colspan="5">
-                <h1> Consulta de Dados.</h1>
+            <div id="titleBox" colspan="5">
+                <h1 class="titleQuery"> Consulta de Dados.</h1>
+                <form action="contact.php" method="POST">
+                    <select name="filter" id="filterBox">
+                        <option value="">Filtrar</option>
+                        <option value="suggestion">Sugestão</option>
+                        <option value="review">Critica</option>
+                    </select>
+                    <input type="submit" name="enviar" value="" class="filterBtn">
+                </form>
             </div>
-            <div id="consultaDeDados">     
-                <table id="tblConsulta" >
-                    <tr id="tblLinhas">
-                        <td class="tblColunas"> Nome </td>
-                        <td class="tblColunas"> Celular </td>
-                        <td class="tblColunas"> e-mail </td>
-                        <td class="tblColunas">  </td>
-                    </tr>
-                        
+            <div class="tbLine tbType">
+                <div class="divColumn"> Nome </div>
+                <div class="divColumn"> Menssagem </div>
+                <div class="divColumn"> e-mail </div>
+            </div>
+            <div id="dataQuery">     
+                <table id="tblQuery" >                        
                     <?php
+                    
+                        $filter = "idContact";
+                        $order = "desc";
+
+                        if(isset($_POST['enviar'])){
+                            $filterOption = $_POST['filter'];
                             
-                        //Script para selecionar todos os registros
+                            if($filterOption == 'suggestion'){
+                                $order = "asc";
+                                $filter = "OptionMessage";
+
+                            }else if($filterOption == 'review'){
+                                $filter = "OptionMessage";
+
+                            }
+                        }
                         $sql = "
-                        select tblContact.idContact, tblContact.clientname, tblContact.cellphone, tblContact.email
-                        FROM tblcontact
-                        order by tblContact.idContact desc; 
-                        ";
-                            
-                        //Envia o script para o BD.
-                        $selectContatos = mysqli_query($connect, $sql);
+                            select tblContact.idContact, tblContact.clientname, tblContact.OptionMessage, tblContact.email
+                            FROM tblcontact
+                            order by tblContact.".$filter." ".$order."; 
+                            ";
+
+                        $selectContatos = mysqli_query($connect, $sql);                                           
                         
-                        //Estrtutura de repetição para listar os contatos na lista, utilizamos a função mysqli_fetch_assoc() para transformar o resultado do BD em um ArratList.
-                        while ($rsContatos = mysqli_fetch_assoc($selectContatos))
+                        while ($rsContacts = mysqli_fetch_assoc($selectContatos))
                         {
                                 
-                            ?>
-                            <tr id="tblLinhas">
-                                <td class="tblColunas"><?=$rsContatos['clientname']?></td>
-                                <td class="tblColunas"><?=$rsContatos['cellphone']?></td>
-                                <td class="tblColunas"><?=$rsContatos['email']?></td>
-                                <td class="tblColunas"> 
-                                    <div class="tblImagens">
-                                        <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                        " href="../db/deleteDate.php?modo=excluir&id=<?=$rsContatos['idContact']?>">
-                                            <div class="delete"></div>
-                                        </a>
-                                        <div class="view"></div>
-                                    </div>
-                                </td>
-                            </tr>
+                        ?>
+                        <tr class="tbLine">
+                            <td class="tbColumn"><?=$rsContacts['clientname']?></td>
+                            <td class="tbColumn">
+                                <?php
+                                    if($rsContacts['OptionMessage'] == 0){
+                                        echo("Sugestão");
+                                    }else{
+                                        echo("Critica");
+                                    }
+                                ?>
+                            </td>
+                            <td class="tbColumn"><?=$rsContacts['email']?></td>
+                            <td class="tbColumn"> 
+                                <div class="tbImage">
+                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
+                                    " href="db/deleteDate.php?modo=excluir&id=<?=$rsContacts['idContact']?>">
+                                        <div class="delete"></div>
+                                    </a>
+                                    <div class="view" onclick="showContact(<?=$rsContacts['idContact']?>);"></div>
+                                </div>
+                            </td>
+                        </tr>
                         <?php 
-                        }
+                            }
                         ?>
                         
-                    <tr id="tblLinhas">
-                        <td class="tblColunas">  </td>
-                        <td class="tblColunas">  </td>
-                        <td class="tblColunas">  </td>
-                        <td class="tblColunas">  </td>
+                    <tr class="tbLine">
+                        <td class="tbColumn">  </td>
+                        <td class="tbColumn">  </td>
+                        <td class="tbColumn">  </td>
+                        <td class="tbColumn">  </td>
                     </tr>
                         
                 </table>
-
             </div>
         </div>
     </main>

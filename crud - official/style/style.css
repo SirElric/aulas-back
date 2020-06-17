@@ -206,6 +206,7 @@ body{
     overflow: auto ;
     margin: auto;
     background-color: #202020;
+    padding: 10px;
 }
 
 .tblInfo{

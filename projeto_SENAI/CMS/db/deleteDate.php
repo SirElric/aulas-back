@@ -28,7 +28,7 @@ if(isset($_GET['modo']))
             if(mysqli_query($connect, $sql))
                 
                 //Redireciona para a página index
-                header('location:../cms/contact.php');
+                header('location:../contact.php');
                 
         }
     }

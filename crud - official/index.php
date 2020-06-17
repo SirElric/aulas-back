@@ -104,6 +104,7 @@ if(isset($_GET['modo']))
         <script>
             //Devemos sempre iniciar jquery por essa function
             $(document).ready(function(){
+                alert("test");
                 $('.visualizar').click(function(){
                     $('#modal').fadeIn(1000);
 

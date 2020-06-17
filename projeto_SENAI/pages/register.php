@@ -75,7 +75,7 @@
                                     <h1 class="infoType">Facebook:</h1>
                                     <input type="email" class="inputText" name="txtFacebook" value="" placeholder="insira seu Facebook (opcional)">                                </div>
                                 <div class="messageBox">
-                                    <h1 class="infoType">Message:</h1>
+                                    <h1 class="infoType">Menssagem:</h1>
                                     <textarea name="obsMessage" id="textObs" cols="30" rows="10" placeholder="Nos envie uma menssagem"></textarea>
                                 </div>
                                 <div class="infoInput">
