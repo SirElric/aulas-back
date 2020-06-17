@@ -100,8 +100,36 @@ if(isset($_GET['modo']))
         <meta charset="UTF-8">
         <title> Cadastro </title>
         <link rel="stylesheet" type="text/css" href="style/style.css">
+        <script src="js/jquery.js"></script>
+        <script>
+            //Devemos sempre iniciar jquery por essa function
+            $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#modal').fadeIn(1000);
+
+                });
+            });
+
+            //function para abrir um arquivo dentro da modal
+            function visualizarContato(idContato){
+                $.ajax({
+                    type: "POST",
+                    url: "db/showContact.php",
+                    data: {modo:'visualizar', id:idContato},
+                    success: function (dados){
+                        $('#modalContent').html(dados);
+                    }
+                });
+            }
+        </script>
     </head>
     <body>
+    <!-- Modal para ser carregada no visualizar de um registro -->
+    <div id="modal">
+        <div id="modalContent">
+                
+        </div>
+    </div>
         <!-- 
             placeholder - permite colocar uma label dentro da caixa para informar ao usuario a ação
             required - permite fazer a validação de caixa vazia pelo html5
@@ -324,7 +352,7 @@ if(isset($_GET['modo']))
                                     " href="db/deleteContato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
                                         <div class="fechar"></div>
                                     </a>
-                                    <div class="pesquisar"></div>
+                                    <div class="visualizar" onclick="visualizarContato(<?=$rsContatos['idContato']?>);"></div>
                                     
                                     <a href="index.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>">
                                         <div class="editar"></div>

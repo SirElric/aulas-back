@@ -9,7 +9,7 @@
                 <div class='open-menu'></div>
                 <nav class='menu'>
                     <ul class='list-menu'>
-                        <li><a href='product.php' class='linkPages'>PRODUTOS</a></li>
+                        <li><a href='curiosities.php' class='linkPages'>CURIOSIDADES</a></li>
                         <li><a href='about.php' class='linkPages'>SOBRE</a></li>
                         <li><a href='sale.php' class='linkPages'>PROMOÇÕES</a></li>
                         <li><a href='localization.php' class='linkPages'>LOCALIZAÇÃO</a></li>
@@ -49,7 +49,7 @@
                 <div class='open-menu'></div>
                 <nav class='menu'>
                     <ul class='list-menu'>
-                        <li><a href='pages/product.php' class='linkPages'>PRODUTOS</a></li>
+                        <li><a href='pages/curiosities.php' class='linkPages'>CURIOSIDADES</a></li>
                         <li><a href='pages/about.php' class='linkPages'>SOBRE</a></li>
                         <li><a href='pages/sale.php' class='linkPages'>PROMOÇÕES</a></li>
                         <li><a href='pages/localization.php' class='linkPages'>LOCALIZAÇÃO</a></li>

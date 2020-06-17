@@ -14,41 +14,8 @@ p{
     #contentBox{
         display: flex;
     }
-
-    #menuItemBox{
-        width: 20%;
-        height: auto;
-        padding-top: 10px;
-        background-color: rgba(26, 13, 0, 0.822);
-        box-sizing: border-box;
-        border-radius: 0px 0px 20px 0px;
-    }
-    .menuItem{
-        width: 100%;
-        min-height: 500px;
-        box-sizing: border-box;
-        height: auto;
-    }
-    .menuProduct{
-        width: 100%;
-        height: 50px;
-        margin-bottom: 10px;
-        font-size: 26px;
-        color: white;
-        line-height: 50px;
-        text-align: center;
-        box-sizing: border-box;
-    }   
-    .menuProduct:hover{
-        background-color: #e0e0e0;
-        border-top: solid rgba(26, 13, 0);
-        border-bottom: solid #aeaeae;
-        color: rgba(26, 13, 0);
-        cursor: pointer;
-    }
-
     .productBox{
-        width: 1000px;
+        width: 100%;
         height: 500px;
         margin-left: auto;
         margin-right: auto;
@@ -65,8 +32,8 @@ p{
         display: flex;
         flex-direction: row;
     }
-    .productInfo, .productImg{
-        width: 450px;
+    .productInfo{
+        width: 70%;
         height: auto;
         margin-right: 50px;
         text-align: center;
@@ -75,14 +42,13 @@ p{
         box-sizing: border-box;
     }
     .productImg{
+        width: 30%;
+        height: auto;
         border-radius: 20px;
     }
 }
 
 @media screen and (max-device-width:1300px){
-    #menuItemBox{
-        display: none;
-    }
     .productBox{
         width: 100%;
         height: 100%;

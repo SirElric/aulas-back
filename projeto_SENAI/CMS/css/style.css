@@ -5,24 +5,12 @@
     cursor: default;
 }
 
-body{   
-    background-image: url(../../image/background_10.jpg);
-    padding-top: 50px;
-}
-.bodyMain{
-    width: 700px;
-    height: auto;
-    margin: auto;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.87);
-}
 /*header/footer*/
 header{
-    width: 700px;
+    width: 1000px;
     height: 150px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     border: solid 2px black;
     margin: auto;
     background-color: rgba(26, 13, 0);
@@ -30,7 +18,7 @@ header{
 
 }
 footer{
-    width: 700px;
+    width: 1000px;
     height: 50px;
     text-align: center;
     border: solid 2px black;
@@ -59,7 +47,7 @@ footer{
 
 /*main*/
 main{
-    width: 700px;
+    width: 1000px;
     height: 500px;
     display: grid;
     grid-template-rows: 150px 350px;
@@ -124,9 +112,6 @@ main{
             text-align: center;
         }
         .btnLogout{
-            position: relative;
-            left: 170px;
-            top:50px;
             border: none;
             cursor: pointer;
             background-color: transparent;

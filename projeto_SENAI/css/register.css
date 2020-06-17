@@ -117,7 +117,7 @@
         border-radius: 50%;
     }
     label:hover input ~ .checkmark {
-        background-color: #ccc;
+        background-color: rgb(26, 13, 0);
     }
     label input:checked ~ .checkmark {
         border: solid 2px white;

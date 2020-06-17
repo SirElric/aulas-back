@@ -27,7 +27,7 @@
                 </div>
                 <div class="option">
                     <a href="contact.php">
-                        <img src="img/tell.png" alt="Adm. FaleConosco" class="iconOption">
+                        <img src="img/contact.png" alt="Adm. FaleConosco" class="iconOption">
                         <h1 class="titleOption">Adm. Fale Conosco</h1>
                     </a>
                 </div>

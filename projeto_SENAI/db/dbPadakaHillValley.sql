@@ -2,19 +2,21 @@ create database dbPadokaHillValley;
 
 use dbPadokaHillValley;
 
-create table tblContato(
+create table tblContact(
 	idContact int auto_increment not null,
-    nameContact varchar(100) not null,
-    telephone varchar (14),
+    clientName varchar(100) not null,
+    telephone varchar (15),
     cellphone varchar (15) not null,
+    profession varchar(100),
+    gender integer,
     email varchar(100) not null,
     homePage varchar(100),
     facebook varchar(100),
     message text not null,
-    optionMessage varchar(1),
-    gender varchar(1),
-    profession varchar(100),
+    optionMessage integer not null,
     primary key (idContact)
 );
 
+
+drop table tblContact;
 

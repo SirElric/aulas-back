@@ -54,11 +54,11 @@
                                 <div class="infoInput">
                                     <h1 class="infoType">Genero:</h1>
                                     <label>
-                                        <input type="radio" class="radio" name="rdoGender" value="f">Feminino
+                                        <input type="radio" class="radio" name="rdoGender" value="0">Feminino
                                         <span class="checkmark"></span>
                                     </label>
                                     <label>
-                                        <input type="radio" class="radio" name="rdoGender" value="m">Masculino
+                                        <input type="radio" class="radio" name="rdoGender" value="1">Masculino
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -81,11 +81,11 @@
                                 <div class="infoInput">
                                     <h1 class="infoType">Tipo de Mensagem:</h1>
                                     <label>
-                                        <input type="radio" class="radio" name="rdoMessage" value="s">Sugestão
+                                        <input type="radio" class="radio" name="rdoMessage" value="0">Sugestão
                                         <span class="checkmark"></span>
                                     </label>
                                     <label>
-                                        <input type="radio" class="radio" name="rdoMessage" value="c">Critica
+                                        <input type="radio" class="radio" name="rdoMessage" value="1">Critica
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

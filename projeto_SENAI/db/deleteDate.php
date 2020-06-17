@@ -20,7 +20,7 @@ if(isset($_GET['modo']))
             $id = $_GET['id'];
 
             //Script de delete
-            $sql = "delete from tblcontato where idContact = " . $id;
+            $sql = "delete from tblcontact where idContact = " . $id;
             
            
            

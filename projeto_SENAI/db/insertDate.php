@@ -26,15 +26,15 @@
                 $mensagem = $_POST['obsMessage'];
                 $opcaoMensagem = $_POST['rdoMessage'];
 
-                $sql = "insert into tblContato
+                $sql = "insert into tblContact
                         (
-                            nameContact, telephone, cellphone, email, homePage, facebook, message,
+                            clientName, telephone, cellphone, email, homePage, facebook, message,
                             optionMessage, gender, profession
                         )
                         values 
                         (
                             '".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homePage."',
-                            '".$facebook."', '".$mensagem."', '".$opcaoMensagem."', '".$sexo."',
+                            '".$facebook."', '".$mensagem."', ".$opcaoMensagem.", ".$sexo.",
                             '".$profissao."' 
                         )";
                         

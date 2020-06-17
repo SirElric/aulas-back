@@ -26,22 +26,6 @@
         <main>
             <div id="mainBox">
                 <div id="contentBox">
-                    <div id="menuItemBox">
-                        <div class="menuItem ">
-                            <!-- import php produtosMenu function  -->
-                            <?php
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                                    echo(menuProduct());
-                            ?>
-                        </div>
-                    </div>
                     <div class="productBox">
                         <!-- import php produtosMenu function  -->
                         <?php
