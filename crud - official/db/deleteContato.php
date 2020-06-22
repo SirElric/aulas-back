@@ -25,11 +25,12 @@ if(isset($_GET['modo']))
            
            
             //Executa o script no BD
-            if(mysqli_query($conex, $sql))
+            if(mysqli_query($conex, $sql)){
+                unlink('arquivos/'.$_GET['image']);
                 
                 //Redireciona para a página index
                 header('location:../index.php');
-                
+            }
         }
     }
 

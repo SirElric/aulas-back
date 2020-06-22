@@ -62,7 +62,7 @@
                     </a>
                 </div>
                 <div class="option">
-                    <a href="">
+                    <a href="user.php">
                         <img src="img/user.png" alt="Adm. Usuarios" class="iconOption">
                         <h1 class="titleOption">Adm. Usuarios</h1>
                     </a>

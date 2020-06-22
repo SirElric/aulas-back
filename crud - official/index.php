@@ -104,7 +104,6 @@ if(isset($_GET['modo']))
         <script>
             //Devemos sempre iniciar jquery por essa function
             $(document).ready(function(){
-                alert("test");
                 $('.visualizar').click(function(){
                     $('#modal').fadeIn(1000);
 
@@ -159,13 +158,28 @@ if(isset($_GET['modo']))
                 <h1> Cadastro de Contatos </h1>
             </div>
             <div id="cadastroInformacoes">
-                <form action="<?=$action?>" name="frmCadastro" method="post">
+            <!--
+                enctype="multipart/form data" deve ser colocado no form para que o 
+                formulario consiga retirar o elemento file, é obrigatorio.
+
+                o method POST é obrigatorio, para o envio de image
+            -->
+                <form action="<?=$action?>" name="frmCadastro" method="post" enctype="multipart/form-data">
                     <div class="campos">
                         <div class="cadastroInformacoesPessoais">
                             <p> Nome: </p>
                         </div>
                         <div class="cadastroEntradaDeDados">
                             <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Insira seu nome" required pattern="[a-z A-Z ã á ó õ]*">
+                        </div>
+                    </div>
+                    <div class="campos">
+                        <div class="cadastroInformacoesPessoais">
+                            <p> foto: </p>
+                        </div>
+                        <div class="cadastroEntradaDeDados">
+                            <!--Permite selecionar uma imagem para enviar ao servidor-->
+                            <input type="file" name="fileFoto" accept="image/jpeg, image/png">
                         </div>
                     </div>
                     <div class="campos">
@@ -196,7 +210,7 @@ if(isset($_GET['modo']))
                         <div class="cadastroInformacoesPessoais">
                             <p> Estados: </p>
                         </div>
-                        <div class="cadastroEntradaDeDados">
+                        <div class="selectEstados">
                             <select name="sltEstados">
                                 
                                 <?php 
@@ -319,6 +333,7 @@ if(isset($_GET['modo']))
                     <td class="tblColunas"> Celular </td>
                     <td class="tblColunas"> Estado </td>
                     <td class="tblColunas"> Email </td>
+                    <td class="tblColunas"> Imagem </td>
                     <td class="tblColunas"> Opções </td>
                 </tr>
                 
@@ -326,7 +341,8 @@ if(isset($_GET['modo']))
                     
                     //Script para selecionar todos os registros
                     $sql = "
-                            SELECT tblcontatos.idContato, tblcontatos.nome as nomeContato, tblcontatos.celular, tblcontatos.email, 
+                            SELECT tblcontatos.idContato, tblcontatos.nome as nomeContato, tblcontatos.celular, tblcontatos.email,
+                            tblcontatos.image,
                             tblestados.sigla, tblestados.nome as nomeEstado
                             FROM tblcontatos, tblestados
                             WHERE tblestados.idEstado = tblcontatos.idEstado
@@ -347,10 +363,14 @@ if(isset($_GET['modo']))
                             <td class="tblColunas"><?=$rsContatos['celular']?></td>
                             <td class="tblColunas"><?=$rsContatos['sigla'] . " - " . $rsContatos['nomeEstado']?></td>
                             <td class="tblColunas"><?=$rsContatos['email']?></td>
+                            <td class="tblColunas">
+                                <img src="db/arquivos/<?=$rsContatos['image']?>" class="demoImg" alt="image undefined">
+                            </td>
                             <td class="tblColunas"> 
                                 <div class="tblImagens">
                                     <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteContato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
+                                    " href="db/deleteContato.php?modo=excluir&id=<?=$rsContatos['idContato']?>
+                                    &image=<?=$rsContatos['image']?>">
                                         <div class="fechar"></div>
                                     </a>
                                     <div class="visualizar" onclick="visualizarContato(<?=$rsContatos['idContato']?>);"></div>
@@ -366,6 +386,7 @@ if(isset($_GET['modo']))
                     ?>
                 
                 <tr id="tblLinhas">
+                    <td class="tblColunas">  </td>
                     <td class="tblColunas">  </td>
                     <td class="tblColunas">  </td>
                     <td class="tblColunas">  </td>

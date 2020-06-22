@@ -20,7 +20,7 @@
         <nav>
             <div class="menu">
                 <div class="option">
-                    <a href="">
+                    <a href="index.php">
                         <img src="img/admin.png" alt="Adm. Conteudo" class="iconOption">
                         <h1 class="titleOption">Adm. Conteudo</h1>
                     </a>
@@ -32,7 +32,7 @@
                     </a>
                 </div>
                 <div class="option">
-                    <a href="user.php">
+                    <a href="">
                         <img src="img/user.png" alt="Adm. Usuarios" class="iconOption">
                         <h1 class="titleOption">Adm. Usuarios</h1>
                     </a>

@@ -7,8 +7,8 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: #2a2a2e;
-    color: orange;
+    background-color: #121212;
+    color: #dfdfdf;
 }
 #cadastro{
     width: 800px;
@@ -18,21 +18,20 @@ body{
     margin-right: auto;
     border-radius: 10px;
     box-sizing: border-box;
-    border: solid 1px rgb(0, 0, 0);
-    background-color: rgb(34, 34, 34);
+    background-color: #1b1b1b;
+    margin-top: 30px;
+    box-shadow: 0px 5px 5px #0a0a0a;
 }
 #cadastroTitulo{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: orange;
-    width: auto;
-    height: 120px;
+    background-color: #1e1e1e;
+    height: auto;
     text-align: center;
-    color: rgb(37, 37, 37);
-    font-size: 1.6em;
-    box-sizing: border-box;
-    padding-top: 30px;
-    cursor: default;
+    font: bolder calc(10px + 1vw)/45px sans-serif;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 5px #0a0a0a;
+    color: #ffffff;
 }
 .campos{
     width: auto;
@@ -56,41 +55,59 @@ body{
     cursor: default;
     
 }
-.cadastroEntradaDeDados {
+.cadastroEntradaDeDados, .selectEstados{
     width: 600px;
     height: auto;
-    padding-left: 10px;
     padding-top: 10px;
-    box-sizing: border-box;
-    
-  
+    box-sizing: border-box;   
 }
 
-.cadastroEntradaDeDados input[type=text], .cadastroEntradaDeDados select {
+.cadastroEntradaDeDados input[type=text], .selectEstados select{
     height: 30px;
     margin-left: 10px;
     width: 300px;
     padding-left: 10px;
     box-sizing: border-box;
+    background-color: #121212;
+    border: solid 2px #202020;
+    font: bolder calc(2px + 1vw)/45px sans-serif;
+    color: #ffffff;
 }
 
-
+.selectEstados select{
+    line-height: 30px;
+}
 
 .cadastroEntradaDeDados textarea{
+    background-color: #121212;
+    border: solid 2px #202020;
+    font: bolder calc(2px + 1vw)/45px sans-serif;
+    color: #ffffff;
     width: 450px;
     height: 100px;
     resize: none;
 }
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow: hidden;
+  }
+  
+
 .enviar input{
     width: 150px;
     height: 30px;
-    background-color: orange;
+    background-color: #dfdfdf;
     color: rgb(37, 37, 37);
     font: bolder 20px arial;
     border: none;
     margin-top: 30px;
 }
 .enviar input:hover{
+    background-color: #1e1e1e;
+    border: solid 1px #dfdfdf;
+    color: #dfdfdf;
     cursor: pointer;
 }
 .enviar{
@@ -152,6 +169,12 @@ body{
 /*    padding: 10px;*/
 /*    box-sizing: border-box;*/
 }
+
+.demoImg{
+    width: autopx;
+    height: 75px;
+}
+
 .fechar, .visualizar, .editar{
     width: 30px;
     height: 30px;
