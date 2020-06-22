@@ -1,23 +1,4 @@
-#altera a estrutura de uma table
-alter table tblContato;
-
-#apaga uma coluna da tabela  selecionada
-alter table tblestados drop column teste;
-
-#adiciona uma coluna na tabla selecionada
-alter table tblContato add profession varchar(100) not null;
-
-#mostra a estrutura de uma table
-show create table tblContact;
-
-#mostra todas tabelas de um db
-show tables;
-
-#deleta um tabela
-drop table tblestados;
-
-#deleta um database
-drop database dbcontatos20201a;
+ALTER USER 'root'@'localhost' identified with mysql_native_password by 'bcd127';
 
 #insere dados dentro de uma tabela
 insert into tblestados (sigla, nome) values ('MG', 'Minas Gerais');
@@ -26,14 +7,13 @@ insert into tblestados (sigla, nome) values ('MG', 'Minas Gerais');
 select * from tblContato;
 
 #delata dados de uma tabela
-delete from tblcontato where idContact = 1;
-
-ALTER USER 'root'@'localhost' identified with mysql_native_password by 'bcd127';
-
-select tblContato.idContact, tblcontato.nameContact, tblcontato.cellphone, tblcontato.email FROM tblcontato order by tblcontato.idContact desc; 
+delete from tblcontato where idContact = 1; 
 
 select * from tblContact where tblContact.idContact = 1;
 
+# escolhe dados de uma tabela e/ou coluna especificas
 select tblContact.idContact, tblContact.clientname, tblContact.cellphone, tblContact.OptionMessage
+# onde se encontra os dados especificados acima
 FROM tblcontact
+#especifica a ordem no qual os dados serão mostrados "asc" crescente "desc" decrescente
 order by tblContact.OptionMessage asc; 
