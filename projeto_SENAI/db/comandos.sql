@@ -4,7 +4,7 @@ ALTER USER 'root'@'localhost' identified with mysql_native_password by 'bcd127';
 insert into tblestados (sigla, nome) values ('MG', 'Minas Gerais');
 
 #mostra todos os dados de uma tabela;
-select * from tblContato;
+select * from tblUser;
 
 #delata dados de uma tabela
 delete from tblcontato where idContact = 1; 

@@ -1,4 +1,5 @@
 <?php
+    require_once('functions/menu.php');
     require_once('db/connection.php');
     $connect = connectionMysql();
     
@@ -38,44 +39,16 @@
         <div id="showContent"></div>
     </div>
     <header>
-        <h1 class="subTitle">
-            <span class="title">
-                CMS
-            </span>
-            - Sistema de Gerenciamento do Site.
+        <h1 class="title">
+            CMS - Sistema de Gerenciamento do Site.
         </h1>
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <nav>
-            <div class="menu">
-                <div class="option">
-                    <a href="index.php">
-                        <img src="img/admin.png" alt="Adm. Conteudo" class="iconOption">
-                        <h1 class="titleOption">Adm. Conteudo</h1>
-                    </a>
-                </div>
-                <div class="option">
-                    <a>
-                        <img src="img/contact.png" alt="Adm. FaleConosco" class="iconOption">
-                        <h1 class="titleOption">Adm. Fale Conosco</h1>
-                    </a>
-                </div>
-                <div class="option">
-                    <a href="user.php">
-                        <img src="img/user.png" alt="Adm. Usuarios" class="iconOption">
-                        <h1 class="titleOption">Adm. Usuarios</h1>
-                    </a>
-                </div>
-            </div>
-            <div class="logout">
-                <h1 class="message">Bem Vindo, XXXXXXXXX</h1>
-                <input class="btnLogout" type="submit" value="Logout">
-            </div>
-        </nav>
+        <?=(menu());?>
         <div class="content">
             <div id="titleBox" colspan="5">
-                <h1 class="titleQuery"> Consulta de Dados.</h1>
+                <h1 class="title"> Consulta de Dados.</h1>
                 <form action="contact.php" method="POST">
                     <select name="filter" id="filterBox">
                         <option value="">Filtrar</option>
@@ -89,6 +62,7 @@
                 <div class="divColumn"> Nome </div>
                 <div class="divColumn"> Menssagem </div>
                 <div class="divColumn"> e-mail </div>
+                <div class="divColumn"> Opções</div>
             </div>
             <div id="dataQuery">     
                 <table id="tblQuery" >                        
@@ -134,13 +108,17 @@
                             </td>
                             <td class="tbColumn"><?=$rsContacts['email']?></td>
                             <td class="tbColumn"> 
-                                <div class="tbImage">
-                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteDate.php?modo=excluir&id=<?=$rsContacts['idContact']?>">
-                                        <div class="delete"></div>
-                                    </a>
-                                    <div class="view" onclick="showContact(<?=$rsContacts['idContact']?>);"></div>
-                                </div>
+                                <a onclick="return confirm('Deseja realmente excluir o registro?');
+                                " href="db/deleteDate.php?modo=excluir&id=<?=$rsContacts['idContact']?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                    </svg>
+                                </a>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view" onclick="showContact(<?=$rsContacts['idContact']?>);">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
                             </td>
                         </tr>
                         <?php 
@@ -159,9 +137,7 @@
         </div>
     </main>
     <footer>
-        <h1 class="subTitle">
-            DESENVOLVIDO POR ERICK MATHEUS
-        </h2>
+        DESENVOLVIDO POR ERICK MATHEUS
     </footer>
 </body>
 </html>

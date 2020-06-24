@@ -1,5 +1,4 @@
 <?php
-
     //verifica se existe a variavel modo
     if (isset($_GET['modo']))
     {

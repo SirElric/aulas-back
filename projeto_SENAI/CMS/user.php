@@ -1,14 +1,43 @@
+<?php
+    require_once('functions/menu.php');
+
+    $action ="insertUser.php?modo=inserir";
+
+    require_once("db/connection.php");
+    $connect = connectionMySQL();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/createUser.css">
     <title>CMS - Sistema de Gerenciamento do Site</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.button-newuser').click(function(){
+                $('#modal').fadeIn(500);
+            });
+        });
+
+        function newUser(){
+            $.ajax({
+                type: "POST",
+                url: "db/createUser.php",
+                success: function (dados){
+                    $('#newUser').html(dados);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-    <div class="modal">
-        <div class="newUser">
+    <div id="modal">
+        <div id="newUser">
 
         </div>
     </div>
@@ -19,55 +48,41 @@
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <nav class="menu">
-            <div class="option">
-                <a href="index.php">
-                    <img src="img/admin.png" alt="Adm. Conteudo" class="iconOption">
-                    <h1 class="titleOption">Adm. Conteudo</h1>
-                </a>
-            </div>
-            <div class="option">
-                <a href="contact.php">
-                    <img src="img/contact.png" alt="Adm. FaleConosco" class="iconOption">
-                    <h1 class="titleOption">Adm. Fale Conosco</h1>
-                </a>
-            </div>
-            <div class="option">
-                <a href="">
-                    <img src="img/user.png" alt="Adm. Usuarios" class="iconOption">
-                    <h1 class="titleOption">Adm. Usuarios</h1>
-                </a>
-            </div>
-        </nav>
+
+        <?php echo(menu());?>
+
         <div class="content">
-            <div class="title">GERENCIAMENTO DE USUARIOS</div>
-            <div class="subtitle">
-                <h2 class="user">USUARIO</h2>
-                <button class="btnNewUser">Novo Usuario</button>
+            <div class="title title-content">GERENCIAMENTO DE USUARIOS</div>
+            <div class="subtitle-box">
+                <h2 class="subtitle">USUARIO</h2>
+                <button class="button-newuser" onclick="newUser();">Novo Usuario</button>
             </div>
-            <table class="register">
-                <tr class="line">
-                    <td class="collumn">NOME</td>
-                    <td class="collumn">CELULAR</td>
-                    <td class="collumn">PERMISSÃO</td>
-                </tr>
-                <tr class="line">
-                    <td class="collumn"></td>
-                    <td class="collumn"></td>
-                    <td class="collumn"></td>
-                </tr>
-                <tr class="line">
-                    <td class="collumn"></td>
-                    <td class="collumn"></td>
-                    <td class="collumn"></td>
-                </tr>
-            </table>
+            <div class="types">
+                <div class="type-info">NOME</div>
+                <div class="type-info">PERMISSÃO</div>
+                <div class="type-info">E-MAIL</div>
+                <div class="type-info">OPÇÕES</div>
+            </div>
+            <div class="overflow">
+                <table class="table-register">
+                    <tr class="line">
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                    </tr>
+                    <tr class="line">
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                        <td class="collumn"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
     <footer>
-        <h1 class="subTitle">
-            DESENVOLVIDO POR ERICK MATHEUS
-        </h2>
+        DESENVOLVIDO POR ERICK MATHEUS
     </footer>
 </body>
 </html>
