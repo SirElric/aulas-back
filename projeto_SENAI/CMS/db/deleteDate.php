@@ -1,37 +1,43 @@
 <?php
 
-//Verifica se a variavel modo existe no GET
-if(isset($_GET['modo']))
-{
-    //Valida se o conteudo da variavel é para excluir
-    if ($_GET['modo'] == 'excluir')
-    {
-        //Import da biblioteca de conexão
+if(isset($_GET['modo'])){
+
+    if ($_GET['modo'] == 'excluir'){
+
         require_once('connection.php');
 
-        //Abre a conexão com o BD
         $connect = connectionMySQL();
 
-        //Verifica se o ID foi enviado pelo GET
-        if (isset($_GET['id']))
-        {
+        if (isset($_GET['id'])){
 
-            //Resgata a variavel Id que foi enviada pela pagina da index
             $id = $_GET['id'];
 
-            //Script de delete
             $sql = "delete from tblcontact where idContact = " . $id;
             
-           
-           
-            //Executa o script no BD
-            if(mysqli_query($connect, $sql))
+            if(mysqli_query($connect, $sql)){
                 
-                //Redireciona para a página index
                 header('location:../contact.php');
-                
+            } 
         }
     }
+    else if($_GET['modo'] == 'deleteUser'){
+        
+        require_once('connection.php');
 
+        $connect = connectionMySQL();
+
+        if (isset($_GET['id'])){
+
+            $id = $_GET['id'];
+
+            $sql = "delete from tblUser where idUser = " . $id;
+            
+            if(mysqli_query($connect, $sql)){
+
+                header('location:../user.php');
+
+            }
+        }
+    }
 }
 ?>

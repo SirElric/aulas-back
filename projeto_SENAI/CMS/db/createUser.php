@@ -57,7 +57,7 @@ $connect = connectionMySQL();
             </select>
             <div id="buttons" class="buttons">
                 <button name="saveButton" id="button-save" class="button save" >SALVAR</button>
-                <button name="exitButton" id="button-exit" class="button exit" >Fechar</button>
+                <button name="exitButton" id="button-exit" class="button exit" >FECHAR</button>
             </div>
         </form>
     </div>   

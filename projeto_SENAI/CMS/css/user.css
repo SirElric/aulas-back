@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-.content{
-    width: 100%;
-    height: auto;
-}
 .title-content{
     width: 100%;
 }
@@ -89,4 +85,18 @@
     overflow: auto;
     margin-top: -50px;
     z-index: 999;
+}
+.delete, .view{
+    fill: #7a7a7a;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    float: left;
+}
+.delete:hover , .view:hover{
+    fill: #0a0a0a;
+    cursor: pointer;
+}
+path{
+    cursor: pointer;
 }

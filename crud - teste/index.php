@@ -116,6 +116,7 @@ if(isset($_GET['modo']))
                     $('#frmPhoto').ajaxForm({
                         target:'#imagePhoto'
                     }).submit();
+                    alert("test")
                 });
             });
 

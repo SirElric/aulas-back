@@ -54,7 +54,7 @@
                                 session_start();
 
                                 //Elimina as variaveis de sessão do projeto
-                                //echo("<img class='photo' src='db/arquivos/".$foto."'>");
+                                echo("<img class='photo' src='db/arquivos/".$foto."'>");
 
                                 //Guarda nome da foto que foi enviada para o servidor, para recuperarmos esse valor
                                 //no insert para o BD 

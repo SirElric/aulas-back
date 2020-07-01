@@ -85,23 +85,22 @@
                     {
 
                         ?>
-                        <tr id="tblLinhas">
+                        <tr class="line">
                             <td class="collumn"><?=$rsUser['userName']?></td>
                             <td class="collumn"><?=$rsUser['level']?></td>
                             <td class="collumn"><?=$rsUser['email']?></td>
-                            <td class="collumn"> 
-                                <!--<div class="tblImagens">
-                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteContato.php?modo=excluir&id=<?=$rsUser['idContato']?>
-                                    &image=<?=$rsUser['image']?>">
-                                        <div class="fechar"></div>
-                                    </a>
-                                    <div class="visualizar" onclick="visualizarContato(<?=$rsUser['idContato']?>);"></div>
-                                    
-                                    <a href="index.php?modo=consultaEditar&id=<?=$rsUser['idContato']?>">
-                                        <div class="editar"></div>
-                                    </a>
-                                </div>-->
+                            <td class="collumn">
+                                <a onclick="return confirm('Deseja realmente excluir o registro?');
+                                " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                    </svg>
+                                </a>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view" onclick="showContact(<?=$rsContacts['idContact']?>);">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
                             </td>
                         </tr>
                     <?php 
