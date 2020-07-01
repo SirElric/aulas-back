@@ -65,12 +65,48 @@
             </div>
             <div class="overflow">
                 <table class="table-register">
-                    <tr class="line">
-                        <td class="collumn"></td>
-                        <td class="collumn"></td>
-                        <td class="collumn"></td>
-                        <td class="collumn"></td>
-                    </tr>
+                <?php
+                    
+                    //Script para selecionar todos os registros
+                    $sql = "
+                            SELECT tblUser.idUser, tblUser.userName, tblUser.email,
+                            tblConstraint.levelName as level
+                            FROM tblUser, tblConstraint
+                            WHERE tblConstraint.idConstraint = tblUser.idConstraint
+                            order by tblUser.idUser desc;
+  
+                    ";
+                    
+                    //Envia o script para o BD.
+                    $selectUsers = mysqli_query($connect, $sql);
+                
+                    //Estrtutura de repetição para listar os contatos na lista, utilizamos a função mysqli_fetch_assoc() para transformar o resultado do BD em um ArratList.
+                    while ($rsUser = mysqli_fetch_assoc($selectUsers))
+                    {
+
+                        ?>
+                        <tr id="tblLinhas">
+                            <td class="collumn"><?=$rsUser['userName']?></td>
+                            <td class="collumn"><?=$rsUser['level']?></td>
+                            <td class="collumn"><?=$rsUser['email']?></td>
+                            <td class="collumn"> 
+                                <!--<div class="tblImagens">
+                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
+                                    " href="db/deleteContato.php?modo=excluir&id=<?=$rsUser['idContato']?>
+                                    &image=<?=$rsUser['image']?>">
+                                        <div class="fechar"></div>
+                                    </a>
+                                    <div class="visualizar" onclick="visualizarContato(<?=$rsUser['idContato']?>);"></div>
+                                    
+                                    <a href="index.php?modo=consultaEditar&id=<?=$rsUser['idContato']?>">
+                                        <div class="editar"></div>
+                                    </a>
+                                </div>-->
+                            </td>
+                        </tr>
+                    <?php 
+                    }
+                    ?>
                     <tr class="line">
                         <td class="collumn"></td>
                         <td class="collumn"></td>

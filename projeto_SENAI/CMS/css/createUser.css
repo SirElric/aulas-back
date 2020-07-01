@@ -32,7 +32,8 @@
         "cpf password"
         "birth birth"
         "cellphone tellphone"
-        "permission permission";
+        "permission permission"
+        "buttons buttons";
     gap: 10px;
     padding: 2vw;
 }
@@ -47,6 +48,7 @@
 #cellphone{ grid-area: cellphone;}
 #tellphone{ grid-area: tellphone;}
 #permission{ grid-area: permission;}
+#buttons{ grid-area: buttons;}
 
 input, select{
     width: 100%;

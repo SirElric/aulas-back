@@ -27,26 +27,39 @@ $connect = connectionMySQL();
         <div class="title-newuser">
             Cadastro novo usuario
         </div>
-        <form class="form">
+        <form class="form" name="formNewUser" method="post" action="db/insertUser.php?modo=inserir">
             <input type="text" name="name" id="name" placeholder="NOME">
             <input type="text" name="surname" id="surname" placeholder="SOBRENOME">
+            <input type="text" name="email" id="email" placeholder="E-MAIL">
             <input type="text" name="cpf" id="cpf" placeholder="CPF">
             <input type="text" name="password" id="password" placeholder="SENHA">
-            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO">
-            <input type="text" name="email" id="email" placeholder="E-MAIL">
+            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
             <input type="text" name="cellphone" id="cellphone" placeholder="CELULAR">
             <input type="text" name="tellphone" id="tellphone" placeholder="TELEFONE">
             <select name="permission" id="permission">
                 <option value="" selected>PERMISSÂO</option>
-                <option value="client">Cliente</option>
-                <option value="operator">Operador</option>
-                <option value="administer">Administrador</option>
+                <?php
+                    echo("teste1");
+                    
+                    $sql = "select * from tblConstraint
+                            order by idConstraint";
+
+                    $selectLevel = mysqli_query($connect, $sql);
+
+                    while($rsLevel = mysqli_fetch_assoc($selectLevel)){
+
+                        echo("teste2");
+                        ?>
+                            <option value="<?=$rsLevel['idConstraint']?>"><?=$rsLevel['levelName']?></option>
+                        <?php
+                    }
+                ?>
             </select>
+            <div id="buttons" class="buttons">
+                <button name="saveButton" id="button-save" class="button save" >SALVAR</button>
+                <button name="exitButton" id="button-exit" class="button exit" >Fechar</button>
+            </div>
         </form>
-        <div class="buttons">
-            <button name="saveButton" class="button save" >SALVAR</button>
-            <button name="exitButton" class="button exit" >Fechar</button>
-        </div>
     </div>   
 </body>
 </html>

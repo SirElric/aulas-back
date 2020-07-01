@@ -73,7 +73,6 @@
     grid-template-columns: 225px 150px 480px 110px;
 }
 .collumn{
-    width: auto;
     height: 50px;
     background-color: #2b2b2b;
     border: solid 1px black;

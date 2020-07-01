@@ -16,24 +16,27 @@ create table tblContact(
     optionMessage integer not null,
     primary key (idContact)
 );
+create table tblConstraint(
+	idConstraint int auto_increment not null,
+    admnisterLevel boolean,
+	operatorLevel boolean,
+	clientLevel boolean,
+  	primary key (idConstraint)
+);
 create table tblUser(
 	idUser int auto_increment not null,
-    permission varchar(15) not null,
+    idConstraint int not null,
     username varchar(100) not null,
     birthDate date not null,
     email varchar(100) not null,
+    cpf varchar(15) not null,
+    userpassword varchar(15) not null,
     cellphone varchar(20) not null,
     tellphone varchar(20),
-    primary key (idUser)
+    primary key (idUser),
+    constraint constraint_user
+    foreign key (idConstraint)
+    references tblConstraint (idConstraint)
 );
-
-
-#create table tblConstraint(
-#	idConstraint int auto_increment not null,
-#   admnisterLevel boolean,
-#   operatorLevel boolean,
-#   clientLevel boolean,
-#  	primary key (idConstraint)
-#);
 
 drop table tblUser;
