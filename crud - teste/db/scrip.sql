@@ -26,3 +26,5 @@ CREATE TABLE tblcontatos (
   KEY FK_estados_contatos (idEstado),
   CONSTRAINT FK_estados_contatos FOREIGN KEY (idEstado) REFERENCES tblestados (idEstado)
 );
+
+alter table tblcontatos add image varchar(200) not null;
