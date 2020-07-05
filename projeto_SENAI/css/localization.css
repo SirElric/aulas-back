@@ -1,45 +1,94 @@
-.title{
-    padding: 5px;
-    width: auto;
-    color: white;
-}
-.mapBox{
-    width: auto;
-}
-.contact ul li{
-    padding: 10px;
-    color: white;
-    font-size: 20px;
-    text-align: left;
-    list-style: none;
-}
-
-#map{
-    width: 100%;
-    height: 450px;
-    border:0;
-    border-radius: 20px;
-}
 @media screen and (min-device-width:1300px){
-    #localizationBox{
-        width: 800px;
-        height: 100%;
+    #local-box{
+        width: 80%;
+        height: 300px;
         margin: auto;
-        padding: 50px;
-        background-color: rgba(26, 13, 0, 0.822);
-        border-radius: 0px 0px 10px 10px;
-    }  
+        margin-top: 10px;
+        background-color: rgba(26, 13, 0, 0.950);
+        padding: 25px 10px;
+        border-radius: 5px;
+        box-shadow: 1px 0px 5px #0a0a0a;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .local-info{
+        height: auto;
+        margin-right: 20px;
+        display: grid;
+        grid-template-areas:
+            "name name"
+            "state city"
+            "street number"
+            "email email"
+        ;
+        gap: 5px;
+        
+    }
+    #li-name{grid-area: name;}
+    #li-state{grid-area: state;}
+    #li-city{grid-area: city;}
+    #li-street{grid-area: street;}
+    #li-number{grid-area: number;}
+    #li-email{grid-area: email;}
 
-    
-
-}
-@media screen and (max-device-width:1300px){
-    #localizationBox{
+    .li-info{
+        height: auto;
+        padding: 10px;
+        background-color: rgb(94, 44, 0);
+        font: bolder calc(5px + 10px)/20px arial;
+        color: #d3d3d3;
+        
+    }
+    .local-map{
+        height: 100%;
+    }
+    #map{
         width: 100%;
         height: 100%;
+        border:0:    
+    }
+}
+@media screen and (max-device-width:1300px){
+    #contentBox{
+        padding-top: 10px;
+    }
+    #local-box{
+        width: 90%;
+        height: auto;
         margin: auto;
-        padding: 50px;
-        background-color: rgba(26, 13, 0, 0.822);
+        margin-top: 10px;
+        background-color: rgba(26, 13, 0, 0.950);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 1px 0px 5px #0a0a0a;
     }  
+    .local-image, .local-map{
+        display: none;
+    }
+    .local-info{
+        display: grid;
+        grid-template-areas:
+            "name name"
+            "state city"
+            "street number"
+            "email email"
+        ;
+        gap: 5px;
+        
+    }
+
+    #li-name{grid-area: name;}
+    #li-state{grid-area: state;}
+    #li-city{grid-area: city;}
+    #li-street{grid-area: street;}
+    #li-number{grid-area: number;}
+    #li-email{grid-area: email;}
+
+    .li-info{
+        padding: 10px;
+        background-color: rgb(94, 44, 0);
+        font: bolder calc(5px + 10px)/20px arial;
+        color: #d3d3d3;
+    }
     
 }

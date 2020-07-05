@@ -38,5 +38,29 @@ create table tblUser(
     foreign key (idConstraint)
     references tblConstraint (idConstraint)
 );
+create table tblCuriosity(
+	idCuriosity int auto_increment not null,
+    title varchar(100) not null,
+    textContent text not null,
+    image varchar(200) not null,
+    primary key (idCuriosity)
+);
+create table tblAbout(
+	idAbout int auto_increment not null,
+    title varchar(100) not null,
+    textContent text not null,
+    primary key (idAbout)
+);
+create table tblLocation(
+	idLocation int auto_increment not null,
+    localName varchar(100),
+    email varchar(100)not null,
+    state varchar(100)not null,
+    city varchar(100)not null,
+    street varchar(100)not null,
+    localNumber numeric(5) not null,
+    primary key (idLocation)
+);
 
+show tables;
 drop table tblUser;

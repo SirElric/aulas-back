@@ -6,6 +6,7 @@
 
 .title-content{
     width: 100%;
+    border-top: solid 1px black;
     border-bottom: solid 1px black;
 }
 .content{
@@ -31,7 +32,6 @@
 }
 
 #admin-curiosity{
-    width: 100%;
     height: 100%;
 }
 .config-curiosity{
@@ -42,7 +42,7 @@
     justify-content: center;
 }
 
-#form-curiosity, #form-about{
+#form-curiosity, #form-about, #form-local{
     width: 500px;
 }
 #title-curiosity, #title-about{
@@ -126,10 +126,85 @@
     color: #dfdfdf;
 }
 
-#admin-about{
+#admin-about, #admin-localization{
     display: none;
 }
-#form-about{
+#form-about, #form-local{
     margin: auto;
     margin-top: 10px;
+}
+
+#form-local{
+    display: grid;
+    grid-template-areas: 
+        "name name"
+        "email email"
+        "state city"
+        "street number"
+    ;
+    gap: 10px;
+}
+
+#name{grid-area: name;}
+#email{grid-area: email;}
+#state{grid-area: state;}
+#city{grid-area: city;}
+#street{grid-area: street;}
+#number{grid-area: number;}
+
+.input-info{
+    height: 40px;
+    font: bold calc(10px + 10px)/40 arial;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    color: #292929;
+    background-color: #d3d3d3;
+    border: solid 3px #292929;
+    border-radius: 5px;
+}
+
+/*SHOW INFO*/
+
+#show-content{
+    width: 100%;
+    height: auto;
+}
+.table{
+    width: 100%;
+}
+.line-curiosity{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 30% 35% 15%;
+}
+.line-aboult{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 65% 15%;
+}
+.line-local{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 20% 45% 15%;
+}
+.collumn{
+    height: 50px;
+    border: solid 1px black;
+    font: bold calc(10px + 10px)/50px arial;
+    text-align: center;
+    color: #d3d3d3;
+}
+.delete, .view{
+    fill: #7a7a7a;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    float: left;
+}
+.delete:hover , .view:hover{
+    fill: #0a0a0a;
+    cursor: pointer;
+}
+path{
+    cursor: pointer;
 }

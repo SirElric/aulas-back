@@ -20,7 +20,7 @@ p{
         flex-direction: column;
         padding: 25px;
         box-sizing: border-box;
-        background-color: rgba(26, 13, 0, 0.822);
+        background-color: rgba(26, 13, 0, 0.950);
         border-radius: 0px 0px 10px 10px;
     }
     .product{
@@ -50,7 +50,7 @@ p{
         margin-top: 50px;
         padding: 25px;
         box-sizing: border-box;
-        background-color: rgba(26, 13, 0, 0.822);
+        background-color: rgba(26, 13, 0, 0.950);
     }
     .product{
         width: 100%;

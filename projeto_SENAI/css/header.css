@@ -8,7 +8,7 @@ html, body{
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-img{
+.img-header{
     width: 100px;
    height: 90px;
  }
@@ -129,7 +129,7 @@ nav .list-menu .linkPages:hover::before{
         left: -100%;
         width: auto;
         height: 100%;
-        background: rgba(26, 13, 0, 0.932);
+        background: rgba(26, 13, 0, 0.950);
     }
     nav .list-menu{
         flex-direction: column;

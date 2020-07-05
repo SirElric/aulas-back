@@ -5,7 +5,7 @@
         "<header>
         <div class='container'>
             <div class='container-header'>
-                <a href='../index.php'><img src='../image/icones/bread.png' alt='logo'></a>
+                <a href='../index.php'><img src='../image/icones/bread.png' alt='logo' class='img-header'></a>
                 <div class='open-menu'></div>
                 <nav class='menu'>
                     <ul class='list-menu'>
@@ -45,7 +45,7 @@
         "<header>
         <div class='container'>
             <div class='container-header'>
-                <img src='image/icones/bread.png' alt='logo'>
+                <img src='image/icones/bread.png' alt='logo' class='img-header'>
                 <div class='open-menu'></div>
                 <nav class='menu'>
                     <ul class='list-menu'>
