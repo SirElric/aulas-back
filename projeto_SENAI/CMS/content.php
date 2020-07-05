@@ -43,7 +43,7 @@
                 <div id="admin-curiosity">
                     <div class="title title-content">Config. Curiosidade</div>
                     <div class="config-curiosity">
-                        <form name="formCuriosity" id="form-curiosity" action="db/insertCuriosityDate.php?modo=submit" method="post" enctype="multipart/form-data">
+                        <form name="formCuriosity" id="form-curiosity" action="db/insertContent.php?modo=submit" method="post" enctype="multipart/form-data">
                             <input type="text" name="titleCuriosity" id="title-curiosity" placeholder="Titulo">
                             <textarea name="textCuriosity" id="text-curiosity" placeholder="Curiosidades da empresa"></textarea>
                             <div class="buttons">
@@ -89,8 +89,8 @@
 
                 <div id="admin-about">
                     <div class="title title-content">Config. Sobre</div>
-                    <form name="formabout" id="form-about" action="db/insertContent.php?modo=about" method="post">
-                        <input type="text" name="titleabout" id="title-about" placeholder="Titulo">
+                    <form name="formabout" id="form-about" action="db/insertContent.php?modo=submit" method="post">
+                        <input type="text" name="titleAbout" id="title-about" placeholder="Titulo">
                         <textarea name="textAbout" id="text-about" placeholder="Sobre a empresa"></textarea>
                         <div class="buttons">
                             <button name="saveAbout" id="save-about" class="button" >SALVAR</button>
@@ -127,9 +127,9 @@
 
                 <div id="admin-localization">
                     <div class="title title-content">Config. Localização</div>
-                    <form name="formLocalization" id="form-local" action="db/insertContent.php?modo=local" method="post">
+                    <form name="formLocalization" id="form-local" action="db/insertContent.php?modo=submit" method="post">
                         <input type="text" class="input-info" name="storeName" id="name" placeholder="Nome da Loja">
-                        <input type="text" class="input-info" name="Email" id="email" placeholder="Email da Loja">
+                        <input type="text" class="input-info" name="email" id="email" placeholder="Email da Loja">
                         <input type="text" class="input-info" name="state" id="state" placeholder="Estado">
                         <input type="text" class="input-info" name="city" id="city" placeholder="Cidade">
                         <input type="text" class="input-info" name="street" id="street" placeholder="Rua">
@@ -145,6 +145,12 @@
                                 <td class="collumn">NOME</td>
                                 <td class="collumn">ESTADO</td>
                                 <td class="collumn">EMAIL</td>
+                                <td class="collumn"></td>
+                            </tr>
+                            <tr class="line-local">
+                                <td class="collumn"></td>
+                                <td class="collumn"></td>
+                                <td class="collumn"></td>
                                 <td class="collumn">
                                     <a onclick="return confirm('Deseja realmente excluir o registro?');
                                     " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
@@ -158,11 +164,6 @@
                                         <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                                     </svg>
                                 </td>
-                            </tr>
-                            <tr class="line-local">
-                                <td class="collumn"></td>
-                                <td class="collumn"></td>
-                                <td class="collumn"></td>
                             </tr>
                         </table>
                     </div>

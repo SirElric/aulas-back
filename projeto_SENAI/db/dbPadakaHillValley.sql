@@ -58,9 +58,12 @@ create table tblLocation(
     state varchar(100)not null,
     city varchar(100)not null,
     street varchar(100)not null,
-    localNumber numeric(5) not null,
+    localNumber int(5) not null,
     primary key (idLocation)
 );
 
 show tables;
-drop table tblUser;
+
+select * from tblLocation;
+
+insert into tblLocation ( localName, email, state, city, street, localNumber) values ( 'padoka one','test.localemail@test.com','test state','test City','test Street',123)
