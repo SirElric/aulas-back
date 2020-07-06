@@ -175,7 +175,7 @@
 .line-curiosity{
     width: 100%;
     display: grid;
-    grid-template-columns: 20% 30% 35% 15%;
+    grid-template-columns: 170px 350px 150px 175px;
 }
 .line-aboult{
     width: 100%;
@@ -188,18 +188,25 @@
     grid-template-columns: 20% 20% 45% 15%;
 }
 .collumn{
-    height: 50px;
+    height: 100px;
     border: solid 1px black;
-    font: bold calc(10px + 10px)/50px arial;
+    font: bold calc(10px + 10px)/100px arial;
     text-align: center;
     color: #d3d3d3;
+}
+.options-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .delete, .view{
     fill: #7a7a7a;
     width: 40px;
     height: 40px;
     margin-left: 10px;
-    float: left;
+}
+.delete-link{
+   
 }
 .delete:hover , .view:hover{
     fill: #0a0a0a;
@@ -207,4 +214,13 @@
 }
 path{
     cursor: pointer;
+}
+.magnifying{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+.image{
+    width: 100px;
+    height: 100px;
 }

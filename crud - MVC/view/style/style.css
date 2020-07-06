@@ -1,0 +1,282 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: arial;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #121212;
+    color: #dfdfdf;
+}
+#cadastro{
+    width: 800px;
+    min-height: 900px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #1b1b1b;
+    margin-top: 30px;
+    box-shadow: 0px 5px 5px #0a0a0a;
+}
+#cadastroTitulo{
+    background-color: #1e1e1e;
+    height: auto;
+    text-align: center;
+    font: bolder calc(10px + 1vw)/45px sans-serif;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 5px #0a0a0a;
+    color: #ffffff;
+}
+.campos{
+    width: auto;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.cadastroInformacoesPessoais  {
+    width: 270px;
+    height: 55px;
+    float: left;
+    background-color: rgb(27, 27, 27);
+    text-align: right;
+    font: bolder 1.1em arial;
+    padding-top: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    cursor: default;
+    
+}
+.cadastroEntradaDeDados, .selectEstados{
+    width: 600px;
+    height: auto;
+    padding-top: 10px;
+    box-sizing: border-box;   
+}
+
+.cadastroEntradaDeDados input[type=text], .selectEstados select{
+    height: 30px;
+    margin-left: 10px;
+    width: 300px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: #121212;
+    border: solid 2px #202020;
+    font: bolder calc(2px + 1vw)/45px sans-serif;
+    color: #ffffff;
+}
+
+.selectEstados select{
+    line-height: 30px;
+}
+
+.cadastroEntradaDeDados textarea{
+    background-color: #121212;
+    border: solid 2px #202020;
+    font: bolder calc(2px + 1vw)/45px sans-serif;
+    color: #ffffff;
+    width: 450px;
+    height: 100px;
+    resize: none;
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow: hidden;
+  }
+  
+
+.enviar input{
+    width: 150px;
+    height: 30px;
+    background-color: #dfdfdf;
+    color: rgb(37, 37, 37);
+    font: bolder 20px arial;
+    border: none;
+    margin-top: 30px;
+}
+.enviar input:hover{
+    background-color: #1e1e1e;
+    border: solid 1px #dfdfdf;
+    color: #dfdfdf;
+    cursor: pointer;
+}
+.enviar{
+    width: 150px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/*consulta de dados*/
+#consultaDeDados{
+    width: 1000px;
+    min-height: 300px;
+    height: auto;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: rgb(37, 37, 37);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#tblConsulta{
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+#tblTitulo{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(255, 166, 0);
+    color: rgb(32, 32, 32);
+    text-align: center;
+    font-size: 1.6em;
+    cursor: default;
+}
+#tblLinhas{
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+    cursor: default;
+}
+.tblColunas{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    border: solid 1px black;
+}
+.tblImagens{
+    width: auto;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    
+/*    padding: 10px;*/
+/*    box-sizing: border-box;*/
+}
+
+.demoImg{
+    width: autopx;
+    height: 75px;
+}
+
+.fechar, .visualizar, .editar{
+    width: 30px;
+    height: 30px;
+/*    background-color: black;*/
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.fechar{
+    background-image: url(../img/delete.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.visualizar{
+    background-image: url(../img/view.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.editar{
+    background-image: url(../img/edit.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.fechar:hover{
+    background-image: url(../img/delete1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.visualizar:hover{
+    background-image: url(../img/view1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.editar:hover{
+    background-image: url(../img/edit1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.781);
+    z-index: 999;
+    position: fixed;
+    padding-top: 10vh;
+    display: none;
+}
+#modalContent{
+    width: 70vw;
+    height: 75vh;
+    overflow: auto ;
+    margin: auto;
+    background-color: #202020;
+    padding: 10px;
+}
+
+.tblInfo{
+    width: 68vw;
+    height: auto;
+    margin: auto;
+    border: solid 2px black;
+    font: bolder 20px arial;
+    overflow: auto;
+}
+.trInfo{
+    width: 100%;
+    height: auto;
+    
+    background-color: #202020;
+}
+.tdType{
+    width: 200px;
+    padding-left: 10px;
+    border: solid 2px black;
+}
+.tdInfo{
+    width: auto;
+    padding-left: 10px;
+    padding: 10px;
+    border: solid 2px black;
+}
+.trtitle{
+    width: auto;
+    height: 50px;
+    text-align: center;
+    border: solid 2px black;
+}
+.title{
+    float: left;
+    width:90%;
+}
+.exit{
+    width: 45px;
+    height: 35px;
+    background-image: url(../img/exit.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+    float: left;
+}
+.exit:hover{
+    background-image: url(../img/exit1.png);
+    cursor: pointer;
+}
