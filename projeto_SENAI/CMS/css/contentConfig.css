@@ -175,50 +175,78 @@
 .line-curiosity{
     width: 100%;
     display: grid;
-    grid-template-columns: 170px 350px 150px 175px;
+    grid-template-columns: 200px 435px 150px 60px;
 }
-.line-aboult{
+.line-about{
     width: 100%;
     display: grid;
-    grid-template-columns: 20% 65% 15%;
+    grid-template-columns: 200px 585px 60px;
 }
 .line-local{
     width: 100%;
     display: grid;
-    grid-template-columns: 20% 20% 45% 15%;
+    grid-template-columns: 200px 455px 160px;
 }
 .collumn{
-    height: 100px;
+    height: 50px;
     border: solid 1px black;
-    font: bold calc(10px + 10px)/100px arial;
+    font: bold calc(10px + 10px)/50px arial;
     text-align: center;
     color: #d3d3d3;
 }
-.options-content{
+.collumn-content{
+    height: 120px;
+    border: solid 1px black;
+    font: bold calc(10px + 10px)/120px arial;
+    text-align: center;
+    color: #d3d3d3;
+}
+.collumn-text{
+    padding-top: 10px;
+    font: bold calc(5px + 10px) arial;
+}
+.collumn-option{
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
-.delete, .view{
+.delete-link{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.option-icon{
     fill: #7a7a7a;
     width: 40px;
     height: 40px;
+    line-height: 40px;
     margin-left: 10px;
+    margin-top: 2px;
 }
-.delete-link{
-   
-}
-.delete:hover , .view:hover{
+.option-icon:hover{
     fill: #0a0a0a;
     cursor: pointer;
 }
 path{
     cursor: pointer;
 }
-.magnifying{
+.view{
     width: 30px;
     height: 30px;
     margin-top: 5px;
+    margin-left: 15px;
+}
+.view-horizontal{
+    width: 30px;
+    height: 40px;
+    line-height: 30px;
+    margin: 0;
+}
+.delete{
+    margin: 0;
 }
 .image{
     width: 100px;

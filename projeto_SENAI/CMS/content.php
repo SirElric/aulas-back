@@ -14,12 +14,25 @@
     <script src="js/jquery.form.js"></script>
     <script>
         $(document).ready(function(){
+            $('.').click(function(){
+                $('#modal').fadeIn(500);
+            });
+
             $('#image-curiosity').live('change', function(){
                 $('#form-image-curiosity').ajaxForm({
                     target:'#image-box'
                 }).submit();
             });
         });
+        function newUser(){
+            $.ajax({
+                type: "POST",
+                url: "db/createUser.php",
+                success: function (dados){
+                    $('#newUser').html(dados);
+                }
+            });
+        }
     </script>
     <title>CMS - Sistema de Gerenciamento do Site</title>
 </head>
@@ -66,9 +79,7 @@
                                 <td class="collumn">TITLE</td>
                                 <td class="collumn">CURIOSIDADE</td>
                                 <td class="collumn">IMAGE</td>
-                                <td class="collumn">
-                                    
-                                </td>
+                                <td class="collumn"></td>
                             </tr>
                             <?php
 
@@ -82,29 +93,25 @@
                                 while ($rsCuriosity = mysqli_fetch_assoc($selectCuriosity)){?>
 
                             <tr class="line-curiosity">
-                                <td class="collumn"><?=$rsCuriosity['title']?></td>
-                                <td class="collumn"><?=$rsCuriosity['textContent']?></td>
-                                <td class="collumn">
+                                <td class="collumn-content collumn-title"><?=$rsCuriosity['title']?></td>
+                                <td class="collumn-content collumn-text"><?=$rsCuriosity['textContent']?></td>
+                                <td class="collumn-content collumn-image">
                                     <img src="db/archives/<?=$rsCuriosity['image']?>" alt="image undefined" class="image">
                                 </td>
-                                <td class="collumn options-content">
+                                <td class="collumn-content collumn-option">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-1 0 136 136.21852" class="view magnifying">
-                                        <g id="surface1">
-                                            <path d="M 93.148438 80.832031 C 109.5 57.742188 104.03125 25.769531 80.941406 9.421875 C 57.851562 -6.925781 25.878906 -1.460938 9.53125 21.632812 C -6.816406 44.722656 -1.351562 76.691406 21.742188 93.039062 C 38.222656 104.707031 60.011719 105.605469 77.394531 95.339844 L 115.164062 132.882812 C 119.242188 137.175781 126.027344 137.347656 130.320312 133.269531 C 134.613281 129.195312 134.785156 122.410156 130.710938 118.117188 C 130.582031 117.980469 130.457031 117.855469 130.320312 117.726562 Z M 51.308594 84.332031 C 33.0625 84.335938 18.269531 69.554688 18.257812 51.308594 C 18.253906 33.0625 33.035156 18.269531 51.285156 18.261719 C 69.507812 18.253906 84.292969 33.011719 84.328125 51.234375 C 84.359375 69.484375 69.585938 84.300781 51.332031 84.332031 C 51.324219 84.332031 51.320312 84.332031 51.308594 84.332031 Z M 51.308594 84.332031 "/>
-                                        </g>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="view option-icon" onclick="showContact(<?=$rsCuriosity['idCuriosity']?>);"version="1.1" viewBox="-1 0 136 136.21852">
+                                        <path d="M 93.148438 80.832031 C 109.5 57.742188 104.03125 25.769531 80.941406 9.421875 C 57.851562 -6.925781 25.878906 -1.460938 9.53125 21.632812 C -6.816406 44.722656 -1.351562 76.691406 21.742188 93.039062 C 38.222656 104.707031 60.011719 105.605469 77.394531 95.339844 L 115.164062 132.882812 C 119.242188 137.175781 126.027344 137.347656 130.320312 133.269531 C 134.613281 129.195312 134.785156 122.410156 130.710938 118.117188 C 130.582031 117.980469 130.457031 117.855469 130.320312 117.726562 Z M 51.308594 84.332031 C 33.0625 84.335938 18.269531 69.554688 18.257812 51.308594 C 18.253906 33.0625 33.035156 18.269531 51.285156 18.261719 C 69.507812 18.253906 84.292969 33.011719 84.328125 51.234375 C 84.359375 69.484375 69.585938 84.300781 51.332031 84.332031 C 51.324219 84.332031 51.320312 84.332031 51.308594 84.332031 Z M 51.308594 84.332031 "/>
                                     </svg>
 
                                     <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
                                     " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
-                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </a>
                                     
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view">
-                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="use option-icon"> 
                                         <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                                     </svg>
                                 </td>
@@ -135,24 +142,48 @@
                     <div class="show-content">
                         <div class="title title-content">Sobre</div>
                         <table class="table">
-                            <tr class="line-aboult">
+                            <tr class="line-about">
                                 <td class="collumn">TITLE</td>
                                 <td class="collumn">SOBRE</td>
-                                <td class="collumn">
-                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
+                                <td class="collumn"></td>
+                            </tr>
+                            <?php
+
+                                require_once('db/connection.php');
+                                $connect = connectionMySQL();                        
+
+                                $sql="select * from tblAbout order by idAbout";
+
+                                $selectAbout = mysqli_query($connect, $sql);
+                                
+                                while ($rsAbout = mysqli_fetch_assoc($selectAbout)){?>
+
+                            <tr class="line-about">
+                                <td class="collumn-content collumn-title"><?=$rsAbout['title']?></td>
+                                <td class="collumn-content collumn-text"><?=$rsAbout['textContent']?></td>
+                                <td class="collumn-content collumn-option">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="view option-icon" onclick="showContact(<?=$rsAbout['idCuriosity']?>);"version="1.1" viewBox="-1 0 136 136.21852">
+                                        <path d="M 93.148438 80.832031 C 109.5 57.742188 104.03125 25.769531 80.941406 9.421875 C 57.851562 -6.925781 25.878906 -1.460938 9.53125 21.632812 C -6.816406 44.722656 -1.351562 76.691406 21.742188 93.039062 C 38.222656 104.707031 60.011719 105.605469 77.394531 95.339844 L 115.164062 132.882812 C 119.242188 137.175781 126.027344 137.347656 130.320312 133.269531 C 134.613281 129.195312 134.785156 122.410156 130.710938 118.117188 C 130.582031 117.980469 130.457031 117.855469 130.320312 117.726562 Z M 51.308594 84.332031 C 33.0625 84.335938 18.269531 69.554688 18.257812 51.308594 C 18.253906 33.0625 33.035156 18.269531 51.285156 18.261719 C 69.507812 18.253906 84.292969 33.011719 84.328125 51.234375 C 84.359375 69.484375 69.585938 84.300781 51.332031 84.332031 C 51.324219 84.332031 51.320312 84.332031 51.308594 84.332031 Z M 51.308594 84.332031 "/>
+                                    </svg>
+
+                                    <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
                                     " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
-                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view" onclick="showContact(<?=$rsContacts['idContact']?>);">
-                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="use option-icon"> 
                                         <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                                     </svg>
                                 </td>
                             </tr>
-                            <tr class="line-aboult">
+
+                                <?php
+                                }
+                            ?>
+                            <tr class="line-about">
                                 <td class="collumn"></td>
                                 <td class="collumn"></td>
                                 <td class="collumn"></td>
@@ -179,27 +210,49 @@
                         <table class="table">
                             <tr class="line-local">
                                 <td class="collumn">NOME</td>
-                                <td class="collumn">ESTADO</td>
                                 <td class="collumn">EMAIL</td>
                                 <td class="collumn"></td>
                             </tr>
+                            <?php
+
+                                require_once('db/connection.php');
+                                $connect = connectionMySQL();                        
+
+                                $sql="select * from tblAbout order by idAbout";
+
+                                $selectAbout = mysqli_query($connect, $sql);
+                                
+                                while ($rsAbout = mysqli_fetch_assoc($selectAbout)){?>
+
+                            <tr class="line-local">
+                                <td class="collumn"><?=$rsAbout['title']?></td>
+                                <td class="collumn"><?=$rsAbout['title']?></td>
+                                <td class="collumn">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="view view-horizontal option-icon" onclick="showContact(<?=$rsAbout['idCuriosity']?>);"version="1.1" viewBox="-1 0 136 136.21852">
+                                        <path d="M 93.148438 80.832031 C 109.5 57.742188 104.03125 25.769531 80.941406 9.421875 C 57.851562 -6.925781 25.878906 -1.460938 9.53125 21.632812 C -6.816406 44.722656 -1.351562 76.691406 21.742188 93.039062 C 38.222656 104.707031 60.011719 105.605469 77.394531 95.339844 L 115.164062 132.882812 C 119.242188 137.175781 126.027344 137.347656 130.320312 133.269531 C 134.613281 129.195312 134.785156 122.410156 130.710938 118.117188 C 130.582031 117.980469 130.457031 117.855469 130.320312 117.726562 Z M 51.308594 84.332031 C 33.0625 84.335938 18.269531 69.554688 18.257812 51.308594 C 18.253906 33.0625 33.035156 18.269531 51.285156 18.261719 C 69.507812 18.253906 84.292969 33.011719 84.328125 51.234375 C 84.359375 69.484375 69.585938 84.300781 51.332031 84.332031 C 51.324219 84.332031 51.320312 84.332031 51.308594 84.332031 Z M 51.308594 84.332031 "/>
+                                    </svg>
+
+                                    <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
+                                    " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
+                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                        </svg>
+                                    </a>
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="use option-icon"> 
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </td>
+                            </tr>
+
+                                <?php
+                                }
+                            ?>
                             <tr class="line-local">
                                 <td class="collumn"></td>
                                 <td class="collumn"></td>
                                 <td class="collumn"></td>
-                                <td class="collumn">
-                                    <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteDate.php?modo=deleteUser&id=<?=$rsUser['idUser']?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
-                                            <path d="M0 0h24v24H0z" fill="none"/>
-                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                                        </svg>
-                                    </a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="view" onclick="showContact(<?=$rsContacts['idContact']?>);">
-                                        <path d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                                    </svg>
-                                </td>
                             </tr>
                         </table>
                     </div>
