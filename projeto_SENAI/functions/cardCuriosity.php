@@ -1,6 +1,6 @@
 <?php
 
-    function cardProduct(){
+    function cardCuriosity(){
         $demoProduct="
             <div class='product'>
                                 

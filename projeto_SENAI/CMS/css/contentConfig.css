@@ -185,7 +185,7 @@
 .line-local{
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 455px 160px;
+    grid-template-columns: 200px 485px 160px;
 }
 .collumn{
     height: 50px;
@@ -197,11 +197,15 @@
 .collumn-content{
     height: 120px;
     border: solid 1px black;
-    font: bold calc(10px + 10px)/120px arial;
+    font: bold calc(10px + 10px) arial;
     text-align: center;
     color: #d3d3d3;
 }
+.collumn-title{
+    padding-top: 25px;
+}
 .collumn-text{
+    overflow: auto;
     padding-top: 10px;
     font: bold calc(5px + 10px) arial;
 }
@@ -223,8 +227,7 @@
     width: 40px;
     height: 40px;
     line-height: 40px;
-    margin-left: 10px;
-    margin-top: 2px;
+    margin: 0;
 }
 .option-icon:hover{
     fill: #0a0a0a;
@@ -245,10 +248,18 @@ path{
     line-height: 30px;
     margin: 0;
 }
-.delete{
-    margin: 0;
-}
 .image{
     width: 100px;
     height: 100px;
+}
+
+#modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.781);
+    position: fixed;
+    display: none;
+    overflow: auto;
+    margin-top: -50px;
+    z-index: 999;
 }

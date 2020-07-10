@@ -14,7 +14,7 @@
                 $sql="insert into tblCuriosity
                       ( title, textContent, image)
                       values
-                      ( '".$title."', '".$textCuriosity."', '".$image."')";
+                      ( '".$title."', '".$textCuriosity."', '".$image."', true)";
 
                 if(mysqli_query($connect, $sql)){
                     echo("
@@ -33,12 +33,12 @@
                 }
             }elseif (isset($_POST['saveAbout'])) {
                 $title = $_POST['titleAbout'];
-                $textAboult = $_POST['textAbout'];
+                $textAbout = $_POST['textAbout'];
 
                 $sql = "insert into tblAbout
-                        ( title, textContent)
+                        ( title, textContent, display)
                         values
-                        ( '".$title."', '".$textAbout."')";
+                        ( '".$title."', '".$textAbout."', true)";
                 
                 if(mysqli_query($connect, $sql)){
 
@@ -50,10 +50,11 @@
                     ");
 
                 }else {
-                    echo("<script> 
+                    echo($sql);
+                    /*echo("<script> 
                         alert('Erro ao executar o script!') 
                         window.history.back();
-                    </script>");   
+                    </script>");   */
                 }
             }elseif (isset($_POST['saveLocal'])) {
                 $name = $_POST['storeName'];

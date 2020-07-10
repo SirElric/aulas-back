@@ -1,7 +1,7 @@
 <?php
     require_once('../functions/header.php');
     require_once('../functions/footer.php');
-    require_once('../functions/cardProductInfo.php');
+    require_once('../functions/cardCuriosity.php');
     require_once('../functions/network.php');
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
                     <div class="productBox">
                         <!-- import php produtosMenu function  -->
                         <?php
-                            echo(cardProduct());
+                            echo(cardCuriosity());
                         ?>
                     </div>
                 </div>

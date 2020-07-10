@@ -64,6 +64,14 @@ create table tblLocation(
 
 show tables;
 
-select * from tblLocation;
+select * from tblAbout;
 
-insert into tblLocation ( localName, email, state, city, street, localNumber) values ( 'padoka one','test.localemail@test.com','test state','test City','test Street',123)
+update tblCuriosity set display = false where idCuriosity = 2;
+
+update tblCuriosity set display = true where idCuriosity = 2;
+
+alter table tblAbout add display boolean not null;
+
+alter table tblAbout drop display;
+
+insert into tblAbout ( title, textContent) values ( 'Padoka Hill Valley', 'Deserunt qui non id elit amet cupidatat mollit minim adipisicing consequat veniam ea consectetur. Officia fugiat cillum cillum aute pariatur consectetur laboris ullamco consectetur sunt. Dolor ex dolore officia proident sunt consectetur laborum ullamco. Est dolor elit ea nulla laboris cillum et adipisicing Lorem culpa ad commodo. Cillum aute ex culpa magna ad enim velit nisi. Ex officia labore consequat ut deserunt elit do laborum consectetur nisi nisi ipsum laborum.Lorem sunt excepteur anim reprehenderit cupidatat quis laborum do in et in velit. Veniam veniam minim culpa sunt dolore est consectetur voluptate aliqua eu. Adipisicing laboris proident amet tempor deserunt ex amet laboris do non Lorem adipisicing. Enim labore nisi dolor ut culpa ipsum. Fugiat amet minim cillum fugiat culpa. Laborum occaecat in ipsum irure ea reprehenderit aliqua minim veniam consectetur exercitation reprehenderit sint. Adipisicing veniam reprehenderit elit ex aute sit amet laborum voluptate laboris velit. Ut quis occaecat nostrud commodo deserunt commodo deserunt. Quis nisi ut consequat ex veniam esse duis proident esse officia. Non minim incididunt eu duis aliquip magna officia magna cupidatat. Ex ullamco veniam occaecat reprehenderit laboris. ')

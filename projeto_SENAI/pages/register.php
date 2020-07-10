@@ -33,7 +33,7 @@
             <div id="mainBox">
                 <div id="contentBox">
                     <div id="registerBox">
-                        <form name="frmRegister" action="<?=$action?>" method="post">
+                        <form id="form-contact" name="frmRegister" action="<?=$action?>" method="post">
                             <input id="name" type="text" class="inputText" name="txtName" value="" placeholder="Nome">                                
                             <input id="tellphone" type="tel" class="inputText" name="txtTelephone" value="" placeholder="Telefone">                                
                             <input id="cellphone" type="tel" class="inputText name="txtCellphone" value="" placeholder="Celular">                                
