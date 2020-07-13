@@ -57,7 +57,7 @@
     border-radius: 5px;
 
 }
-#text-curiosity, #text-about{
+#text-curiosity, #text-about, #map{
     width: 100%;
     height: 200px;
     padding: 10px;
@@ -126,9 +126,6 @@
     color: #dfdfdf;
 }
 
-#admin-about, #admin-localization{
-    display: none;
-}
 #form-about, #form-local{
     margin: auto;
     margin-top: 10px;
@@ -141,6 +138,7 @@
         "email email"
         "state city"
         "street number"
+        "map map"
     ;
     gap: 10px;
 }
@@ -151,6 +149,7 @@
 #city{grid-area: city;}
 #street{grid-area: street;}
 #number{grid-area: number;}
+#map{grid-area: map;}
 
 .input-info{
     height: 40px;

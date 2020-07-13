@@ -52,7 +52,7 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../content.php');
+                header('location:../curiosityConfig.php');
 
             }
         }
@@ -69,7 +69,24 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../content.php');
+                header('location:../aboutConfig.php');
+
+            }
+        }
+    }elseif ($_GET['modo'] == 'deleteLocal') {
+        require_once('connection.php');
+
+        $connect = connectionMySQL();
+
+        if (isset($_GET['id'])){
+
+            $id = $_GET['id'];
+
+            $sql = "delete from tblLocation where idLocation = " . $id;
+            
+            if(mysqli_query($connect, $sql)){
+
+                header('location:../localConfig.php');
 
             }
         }

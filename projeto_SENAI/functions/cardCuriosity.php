@@ -1,12 +1,11 @@
 <?php
-
     function cardCuriosity(){
         $demoProduct="
-            <div class='product'>
+            <div class='content-curiosity'>
                                 
-                <div class='productInfo'>
-                    <h3>Sobre os nossos pães</h3>
-                    <p>
+                <div class='info-curiosity'>
+                    <h3 class='title-curiosity title'>Sobre os nossos pães</h3>
+                    <p class='text-curiosity'>
                         Cillum irure adipisicing commodo consequat cupidatat commodo
                         consectetur adipisicing magna sint id labore magna proident.
                         Minim id est excepteur nisi duis ut ea cupidatat deserunt 
@@ -31,7 +30,7 @@
                         velit.
                     </p>
                 </div>
-                <img class='productImg' src='../image/exemplo.jpg' alt='Produto'>
+                <img class='image-curiosity' src='../image/exemplo.jpg' alt='Produto'>
             </div>";
             
         return $demoProduct;

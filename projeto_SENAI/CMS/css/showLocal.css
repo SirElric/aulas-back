@@ -1,0 +1,81 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.local-box{
+    width: 1000px;
+    height: 450px;       
+    margin: 10vh auto;
+    background-color: #1e1e1e;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 1px 0px 5px #0a0a0a;
+
+    display: grid;
+    grid-template-rows: 45px 355px;
+}
+
+#header-modal{
+    height: 45px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px 0px 5px #0a0a0a;
+
+    display:flex;
+    justify-content: space-between;
+    padding-left: 10px;
+
+    text-align: center;
+    font: bolder calc(5px + 10px)/45px sans-serif;
+    color: #d3d3d3;
+}
+
+#content-local-modal{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    padding: 20px;
+}
+.map-modal > iframe{
+    width: 450px;
+    height: 100%;
+    margin-left: 25px;
+}
+.info-modal{
+    display: grid;
+    grid-template-areas: 
+        "name name"
+        "state city"
+        "street number"
+        "email email"
+    ;
+    gap: 5px;
+}
+
+#name{grid-area: name;}
+#state{grid-area: state;}
+#city{grid-area:city;}
+#street{grid-area:street;}
+#number{grid-area:number;}
+#email{grid-area:email;}
+
+.info-local{
+    background-color: #272727;
+    box-shadow: 1px 0px 5px #0a0a0a;
+    font: bold calc(5px + 10px)/50px sans-serif;
+    text-align: center;
+    color: #d3d3d3;
+}
+
+.exit{
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+    fill: #dfdfdf;
+    cursor: pointer;
+    float: left;
+}
+.exit:hover{
+    fill: #121212;
+}

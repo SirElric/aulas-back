@@ -51,10 +51,10 @@
 
                 }else {
                     echo($sql);
-                    /*echo("<script> 
+                    echo("<script> 
                         alert('Erro ao executar o script!') 
                         window.history.back();
-                    </script>");   */
+                    </script>");
                 }
             }elseif (isset($_POST['saveLocal'])) {
                 $name = $_POST['storeName'];
@@ -63,24 +63,23 @@
                 $city = $_POST['city'];
                 $street = $_POST['street'];
                 $number = $_POST['number'];
+                $map = $_POST['map'];
 
                 $sql = "insert into tblLocation
-                        ( localName, email, state, city, street, localNumber)
+                        ( localName, email, state, city, street, localNumber, map, display)
                         values
-                        ( '".$name."','".$email."','".$state."','".$city."','".$street."',".$number.")";
-
-                echo($sql);
+                        ( '".$name."','".$email."','".$state."','".$city."','".$street."',".$number.",'".$map."', true)";
 
                 if(mysqli_query($connect, $sql)){
                     echo("
                     <script> 
                         alert('Local inserido com sucesso!');
-                        location.href = '../content.php';
+                        location.href = '../localConfig.php';
                     </script>                  
                     ");
 
                 }else {
-                     
+                    echo($sql);
                 }
             }
         }

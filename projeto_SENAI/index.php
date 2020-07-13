@@ -34,9 +34,11 @@
                     <!--Slide local-->
                     <div id="carousel-box">
         
-                        <div id="carousel-slide"></div>
-                        <div id='next' onclick="next()">&raquo;</div>
-                        <div id='prev' onclick="prev()">&laquo;</div>
+                        <div id="carousel-slide">
+                        <div id='next' class="slide-control" onclick="next()">&raquo;</div>
+                        <div id='prev' class="slide-control" onclick="prev()">&laquo;</div>
+                        </div>
+                        
                     </div>
                     <div id="container">
                         <div id="menuItemBox">
