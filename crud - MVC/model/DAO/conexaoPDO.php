@@ -7,8 +7,8 @@
     Data de Criação: 06/07/2020
     Autor: Erick Matheus
 
-    Data da MOdificação: 
-    Autor da MOdificação:
+    Data da Modificação: 
+    Autor da Modificação:
     Conteudo Modificado:
 
 **************************************************/ 

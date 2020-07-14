@@ -28,7 +28,7 @@
             <h1> Cadastro de Contatos </h1>
         </div>
         <div id="cadastroInformacoes">
-            <form action="<?=$action?>" name="frmCadastro" method="post" enctype="multipart/form-data">
+            <form action="router.php?controller=contatos&modo=inserir" name="frmCadastro" method="post" enctype="multipart/form-data">
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
                         <p> Nome: </p>
@@ -68,6 +68,22 @@
                     <div class="selectEstados">
                         <select name="sltEstados">             
                         </select>
+                    </div>
+                </div>
+                <div class="campos">
+                    <div class="cadastroInformacoesPessoais">
+                        <p> Telefone: </p>
+                    </div>
+                    <div class="cadastroEntradaDeDados">
+                        <input type="text" name="txtTelefone" value="" placeholder="Formato exigido: 999 9999-9999">
+                    </div>
+                </div>
+                <div class="campos">
+                    <div class="cadastroInformacoesPessoais">
+                        <p> Celular: </p>
+                    </div>
+                    <div class="cadastroEntradaDeDados">
+                        <input type="text" name="txtCelular" value="" placeholder="Formato exigido: 999 99999-9999">
                     </div>
                 </div>
                 <div class="campos">
