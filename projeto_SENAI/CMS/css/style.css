@@ -5,7 +5,7 @@
     text-decoration: none;
 }
 body {
-    background-color: #121212;
+    background-color: #d3d3d3;
 }
 header{
     background-color: #1e1e1e;
@@ -25,6 +25,13 @@ header{
     height: 50px;
     text-align: center;
     font: bolder calc(10px + 10px)/50px sans-serif;
+    color: #1e1e1e;
+}
+.title-cms{
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    font: bolder calc(10px + 20px)/50px sans-serif;
     color: #ffffff;
 }
 .logo{
@@ -35,7 +42,7 @@ header{
 main{
     width: 1000px;
     height: auto;
-    background-color: #1e1e1e;
+    background-color: #ffffff;
     box-shadow: 0px 5px 5px #0a0a0a;
     margin: auto;
 }
@@ -55,18 +62,18 @@ main{
     padding: 5px;
 }
 .iconOption{
-    fill: #dfdfdf;
-    color: #dfdfdf;
+    fill: #1e1e1e;
+    color: #1e1e1e;
     width: 50px;
     border-radius: 5px;
 }
 .iconOption:hover{
-    border: solid 1px #dfdfdf;
+    border: solid 1px #1e1e1e;
 }
 .titleOption{
     height: 10px;
     font: bolder calc(6px + 5px)/10px sans-serif;
-    color: #dfdfdf;
+    color: #1e1e1e;
 }
 footer{
     background-color: #1e1e1e;

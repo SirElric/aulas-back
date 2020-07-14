@@ -43,7 +43,7 @@
         <div id="show-curiosity"></div>
     </div>
     <header>
-        <h1 class="title">
+        <h1 class="title-cms">
             CMS - Sistema de Gerenciamento do Site.
         </h1>
         <img class="logo" src="img/bread.png" alt="logo">
@@ -65,8 +65,11 @@
            </div>
            <div class="admin-content">
                 <div id="admin-curiosity">
-                    <div class="title title-content">Config. Curiosidade</div>
-                    <div class="config-curiosity">
+                    <div class="title title-content">
+                        Config. Curiosidade
+                        <button id="new-curiosity" onclick="newCuriosity()">Nova Curiosidade</button>
+                    </div>
+                    <div class="config-curiosity" id="config-curiosity">
                         <form name="formCuriosity" id="form-curiosity" action="db/insertContent.php?modo=submit" method="post" enctype="multipart/form-data">
                             <input type="text" name="titleCuriosity" id="title-curiosity" placeholder="Titulo">
                             <textarea name="textCuriosity" id="text-curiosity" placeholder="Curiosidades da empresa"></textarea>
@@ -80,8 +83,7 @@
                             <div id="image-box" class="image-box"></div>
                         </form>
                     </div>
-                    <div class="show-content">
-                        <div class="title title-content">Curiosidades</div>
+                    <div class="show-content" id="show-content">
                         <table class="table">
                             <tr class="line-curiosity">
                                 <td class="collumn">TITLE</td>

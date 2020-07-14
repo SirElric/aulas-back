@@ -36,7 +36,7 @@
         <div id="show-local"></div>
     </div>
     <header>
-        <h1 class="title">
+        <h1 class="title-cms">
             CMS - Sistema de Gerenciamento do Site.
         </h1>
         <img class="logo" src="img/bread.png" alt="logo">

@@ -6,8 +6,7 @@
 
 .title-content{
     width: 100%;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px black; 
 }
 .content{
     height: auto;
@@ -23,12 +22,11 @@
     height: 50px;
     font: bold calc(10px + 10px)/50px arial;
     text-align: center;
-    color: #d3d3d3;
+    color: #1e1e1e;
     cursor: pointer;
 }
 .page:hover{
     background-color: #d3d3d3;
-    color: #131313;
 }
 
 #admin-curiosity{
@@ -40,6 +38,7 @@
     margin-top: 10px;
     display: flex;
     justify-content: center;
+    display: none;
 }
 
 #form-curiosity, #form-about, #form-local{
@@ -52,8 +51,8 @@
     padding-left: 10px;
     margin-bottom: 10px;
     color: #292929;
-    background-color: #d3d3d3;
-    border: solid 3px #292929;
+    background-color: #ffffff;
+    border: solid 3px #d3d3d3;
     border-radius: 5px;
 
 }
@@ -63,8 +62,8 @@
     padding: 10px;
     font: calc(5px + 10px) arial;
     color: #292929;
-    background-color: #d3d3d3;
-    border: solid 3px #292929;
+    background-color: #ffffff;
+    border: solid 3px #d3d3d3;
     resize: none;
     border-radius: 5px;
 }
@@ -115,7 +114,7 @@
     padding: 5px 30px;
     border: solid 1px #dfdfdf;
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: #c3c3c3;
     font: bolder calc(5px + 10px)/30px sans-serif;
     color: #1e1e1e;
     cursor: pointer;
@@ -157,8 +156,8 @@
     padding-left: 10px;
     margin-bottom: 10px;
     color: #292929;
-    background-color: #d3d3d3;
-    border: solid 3px #292929;
+    background-color: #ffffff;
+    border: solid 3px #d3d3d3;
     border-radius: 5px;
 }
 
@@ -188,17 +187,17 @@
 }
 .collumn{
     height: 50px;
-    border: solid 1px black;
+    border-bottom: solid 1px black;
     font: bold calc(10px + 10px)/50px arial;
     text-align: center;
-    color: #d3d3d3;
+    color: #292929;
 }
 .collumn-content{
     height: 120px;
-    border: solid 1px black;
+    border-bottom: solid 1px black;
     font: bold calc(10px + 10px) arial;
     text-align: center;
-    color: #d3d3d3;
+    color: #292929;
 }
 .collumn-title{
     padding-top: 25px;
@@ -250,6 +249,8 @@ path{
 .image{
     width: 100px;
     height: 100px;
+    margin-top: 10px;
+    border: solid 2px #d3d3d3;
 }
 
 #modal{
