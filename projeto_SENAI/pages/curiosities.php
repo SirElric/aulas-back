@@ -1,7 +1,6 @@
 <?php
     require_once('../functions/header.php');
     require_once('../functions/footer.php');
-    require_once('../functions/cardCuriosity.php');
     require_once('../functions/network.php');
 ?>
 <!DOCTYPE html>
@@ -29,7 +28,30 @@
                     <div class="productBox">
                         <!-- import php produtosMenu function  -->
                         <?php
-                            echo(cardCuriosity());
+                            require_once('../db/connection.php');
+                            $connect = connectionMySQL();
+                            
+                            $sql="
+                                select * from tblCuriosity
+                                where display = 1 
+                                order by idCuriosity asc;
+                            ";
+
+                            $selectCuriosity = mysqli_query($connect, $sql);
+
+                            while($rsCuriosity = mysqli_fetch_assoc($selectCuriosity)){
+                                ?>
+                                    <div class="content-curiosity">
+                                        
+                                        <div class="info-curiosity">
+
+                                            <h3 class="title-curiosity title"><?=$rsCuriosity['title']?></h3>
+                                            <p class="text-curiosity"><?=$rsCuriosity['textContent']?></p>
+                                        </div>
+                                        <img class="image-curiosity" src="../cms/db/archives/<?=$rsCuriosity['image']?>" alt="Curiosity">
+                                    </div>
+                                <?php
+                            }
                         ?>
                     </div>
                 </div>

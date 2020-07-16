@@ -39,7 +39,7 @@
 }
 .types{
     display: grid;
-    grid-template-columns: 225px 150px 480px 110px;
+    grid-template-columns: 220px 150px 450px 150px;
     border: none;
     padding: 2px;
     border-bottom: solid 1px black;
@@ -63,7 +63,7 @@
     height: auto;
     cursor: default;
     display: grid;
-    grid-template-columns: 225px 150px 480px 110px;
+    grid-template-columns: 220px 150px 450px 150px;
 }
 .collumn{
     height: 50px;
@@ -82,14 +82,14 @@
     margin-top: -50px;
     z-index: 999;
 }
-.delete, .view{
+.delete, .view, .edit{
     fill: #7a7a7a;
     width: 40px;
     height: 40px;
     margin-left: 10px;
     float: left;
 }
-.delete:hover , .view:hover{
+.delete:hover , .view:hover, .edit:hover{
     fill: #0a0a0a;
     cursor: pointer;
 }

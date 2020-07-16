@@ -27,30 +27,27 @@
                 <div id="contentBox">
                     <div id="aboutBox">
                         <div class="textBox">
-                            <h1 class="title">Padoka Hill Valley</h1>
-                            <p class="about">
-                                Deserunt qui non id elit amet cupidatat mollit minim adipisicing
-                                consequat veniam ea consectetur. Officia fugiat cillum cillum aute
-                                pariatur consectetur laboris ullamco consectetur sunt. Dolor ex
-                                dolore officia proident sunt consectetur laborum ullamco. Est 
-                                dolor elit ea nulla laboris cillum et adipisicing Lorem culpa 
-                                ad commodo. Cillum aute ex culpa magna ad enim velit nisi.
+                            <?php
+                                require_once('../db/connection.php');
+                                $connect = connectionMySQL();
+                                
+                                $sql="
+                                    select * from tblAbout
+                                    where display = 1
+                                    order by idAbout asc;
+                                ";
 
-                                Ex officia labore consequat ut deserunt elit do laborum consectetur
-                                nisi nisi ipsum laborum.Lorem sunt excepteur anim reprehenderit cupidatat
-                                quis laborum do in et in velit. Veniam veniam minim culpa 
-                                sunt dolore est consectetur voluptate aliqua eu. Adipisicing
-                                laboris proident amet tempor deserunt ex amet laboris do non
-                                Lorem adipisicing. Enim labore nisi dolor ut culpa ipsum.
+                                $selectAbout = mysqli_query($connect, $sql);
 
-                                Fugiat amet minim cillum fugiat culpa. Laborum occaecat in ipsum 
-                                irure ea reprehenderit aliqua minim veniam consectetur exercitation 
-                                reprehenderit sint. Adipisicing veniam reprehenderit elit ex aute sit 
-                                amet laborum voluptate laboris velit. Ut quis occaecat nostrud commodo 
-                                deserunt commodo deserunt. Quis nisi ut consequat ex veniam esse duis 
-                                proident esse officia. Non minim incididunt eu duis aliquip magna officia 
-                                magna cupidatat. Ex ullamco veniam occaecat reprehenderit laboris.
-                            </p>
+                                while($rsAbout = mysqli_fetch_assoc($selectAbout)){
+                            ?>
+                                <div class="content-about">
+                                    <h3 class="title-about title"><?=$rsAbout['title']?></h3>
+                                    <p class="text-about"><?=$rsAbout['textContent']?></p>
+                                </div>
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

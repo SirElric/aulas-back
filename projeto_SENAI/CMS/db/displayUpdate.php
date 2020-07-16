@@ -23,7 +23,7 @@
                     if(mysqli_query($connect, $update)){
                         echo("
                         <script> 
-                            alert('não exibido');
+                            alert('Curiosidade removida do site');
                             location.href = '../curiosityConfig.php';
                         </script>                                              
                     ");
@@ -39,7 +39,7 @@
                     if(mysqli_query($connect, $update)){
                         echo("
                         <script> 
-                            alert('exibido!');
+                            alert('Curiosidade sendo exibida no site!');
                             location.href = '../curiosityConfig.php';
                         </script>                                              
                     ");
@@ -69,7 +69,7 @@
                     if(mysqli_query($connect, $update)){
                         echo("
                         <script> 
-                            alert('não exibido');
+                            alert('Informação removida do site!');
                             location.href = '../aboutConfig.php';
                         </script>                                              
                     ");
@@ -85,7 +85,7 @@
                     if(mysqli_query($connect, $update)){
                         echo("
                         <script> 
-                            alert('exibido!');
+                            alert('Informação sendo exibida no site!');
                             location.href = '../aboutConfig.php';
                         </script>                                              
                     ");
@@ -114,7 +114,8 @@
 
                     if(mysqli_query($connect, $update)){
                         echo("
-                        <script> 
+                        <script>
+                            alert('Local removido do site!'); 
                             location.href = '../localConfig.php';
                         </script>                                              
                     ");
@@ -130,6 +131,7 @@
                     if(mysqli_query($connect, $update)){
                         echo("
                         <script> 
+                            alert('Local sendo exibido no site!');
                             location.href = '../localConfig.php';
                         </script>                                              
                     ");

@@ -1,6 +1,36 @@
 <?php
     require_once('functions/menu.php');
 
+    $title = null;
+    $textContent = null;
+
+    $action="db/insertContent.php?modo=submit";
+
+    require_once('db/connection.php');
+    $connect = connectionMySQL();   
+
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'edit'){
+            if(isset($_GET['id'])){
+                
+                $id = $_GET['id'];
+
+                $sql="
+                    SELECT * FROM tblAbout
+                    WHERE idAbout = ".$id;  
+
+                $selectDates = mysqli_query($connect, $sql); 
+
+
+                if($rsListAbout = mysqli_fetch_assoc($selectDates)){
+                    $title = $rsListAbout['title'];
+                    $textContent = $rsListAbout['textContent'];
+
+                    $action = "db/updateContent.php?modo=update&id=".$rsListAbout['idAbout'];
+                }
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,27 +90,27 @@
            <div class="admin-content">
 
                 <div id="admin-about">
-                    <div class="title title-content">Config. Sobre</div>
-                    <form name="formabout" id="form-about" action="db/insertContent.php?modo=submit" method="post">
-                        <input type="text" name="titleAbout" id="title-about" placeholder="Titulo">
-                        <textarea name="textAbout" id="text-about" placeholder="Sobre a empresa"></textarea>
+                    <div class="title title-function">
+                    Config. Sobre
+                    <input type="submit" class="button" id="new-about" onclick="newAbout()" value="Informações da Empresa">
+                    </div>
+                    <form name="formabout" id="form-about" action="<?=$action?>" method="post">
+                        <input type="text" name="titleAbout" id="title-about" placeholder="Titulo" value="<?=$title?>">
+                        <textarea name="textAbout" id="text-about" placeholder="Sobre a empresa">
+                            <?=$textContent?>
+                        </textarea>
                         <div class="buttons">
                             <button name="saveAbout" id="save-about" class="button" >SALVAR</button>
                         </div>
                     </form>
-                    <div class="show-content">
-                        <div class="title title-content">Sobre</div>
+                    <div class="show-content" id="show-content">
                         <table class="table">
                             <tr class="line-about">
                                 <td class="collumn">TITLE</td>
                                 <td class="collumn">SOBRE</td>
                                 <td class="collumn"></td>
                             </tr>
-                            <?php
-
-                                require_once('db/connection.php');
-                                $connect = connectionMySQL();                        
-
+                            <?php            
                                 $sql="select * from tblAbout order by idAbout";
 
                                 $selectAbout = mysqli_query($connect, $sql);
@@ -89,7 +119,9 @@
 
                             <tr class="line-about">
                                 <td class="collumn-content collumn-title"><?=$rsAbout['title']?></td>
-                                <td class="collumn-content collumn-text"><?=$rsAbout['textContent']?></td>
+                                <td class="collumn-content collumn-text">
+                                    <div class="show-text"><?=$rsAbout['textContent']?></div>
+                                </td>
                                 <td class="collumn-content collumn-option">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="view option-icon" id="view-about" onclick="showAbout(<?=$rsAbout['idAbout']?>);"version="1.1" viewBox="-1 0 136 136.21852">
@@ -100,6 +132,12 @@
                                         " href="db/deleteDate.php?modo=deleteAbout&id=<?=$rsAbout['idAbout']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                        </svg>
+                                    </a>
+
+                                    <a class="delete-link" href="aboutConfig.php?modo=edit&id=<?=$rsAbout['idAbout']?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
+                                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     

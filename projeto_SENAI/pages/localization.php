@@ -26,10 +26,37 @@
         <main>
             <div id="mainBox">
                 <div id="contentBox">
-                    <?php echo(cardLocal())?>
-                    <?php echo(cardLocal())?>
-                    <?php echo(cardLocal())?>
-                    <?php echo(cardLocal())?>
+                        <?php
+                            require_once('../db/connection.php');
+                            $connect = connectionMySQL();
+                            
+                            $sql="
+                                select * from tblLocation
+                                where display = 1
+                                order by idLocation asc;
+                            ";
+
+                            $selectLocal = mysqli_query($connect, $sql);
+
+                            while($rsLocal = mysqli_fetch_assoc($selectLocal)){
+                                ?>
+                                    <div id="content-local">
+                                        <div class="info">
+                                            <div id="name" class="info-local"><?=$rsLocal['localName']?></div>
+                                            <div id="state" class="info-local"><?=$rsLocal['state']?></div>
+                                            <div id="city" class="info-local"><?=$rsLocal['city']?></div>
+                                            <div id="street" class="info-local"><?=$rsLocal['street']?></div>
+                                            <div id="number" class="info-local"><?=$rsLocal['localNumber']?></div>
+                                            <div id="email" class="info-local"><?=$rsLocal['email']?></div>
+                                        </div>
+                                        <div class="map">
+                                            <?=$rsLocal['map']?>
+                                        </div>
+                                    </div>  
+                                <?php
+                            }
+                        ?>
+                    
                 </div>
                 <div class="emptyBox">
                     <?php echo(socialNetwork()); ?>

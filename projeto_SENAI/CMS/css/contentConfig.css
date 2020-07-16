@@ -8,6 +8,14 @@
     width: 100%;
     border-bottom: solid 1px black; 
 }
+.title-function{
+    width: 100%;
+    height: 75px;
+    border-bottom: solid 1px black;
+    padding: 10px; 
+    display: flex;
+    justify-content: space-between;
+}
 .content{
     height: auto;
     display: grid;
@@ -38,8 +46,9 @@
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    display: none;
+    
 }
+
 
 #form-curiosity, #form-about, #form-local{
     width: 500px;
@@ -111,7 +120,7 @@
 .button{
     width: auto;
     height: auto;
-    padding: 5px 30px;
+    padding: 5px 5px;
     border: solid 1px #dfdfdf;
     border-radius: 5px;
     background-color: #c3c3c3;
@@ -162,10 +171,10 @@
 }
 
 /*SHOW INFO*/
-
 #show-content{
     width: 100%;
     height: auto;
+    display: none;
 }
 .table{
     width: 100%;
@@ -183,7 +192,7 @@
 .line-local{
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 485px 160px;
+    grid-template-columns: 200px 385px 260px;
 }
 .collumn{
     height: 50px;
@@ -193,7 +202,7 @@
     color: #292929;
 }
 .collumn-content{
-    height: 120px;
+    height: 175px;
     border-bottom: solid 1px black;
     font: bold calc(10px + 10px) arial;
     text-align: center;
@@ -203,9 +212,12 @@
     padding-top: 25px;
 }
 .collumn-text{
-    overflow: auto;
-    padding-top: 10px;
+    padding: 15px;
     font: bold calc(5px + 10px) arial;
+}
+.show-text{
+    overflow: auto;
+    height: 100%;
 }
 .collumn-option{
     width: 100%;

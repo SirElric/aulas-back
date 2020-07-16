@@ -1,6 +1,40 @@
 <?php
     require_once('functions/menu.php');
 
+    $title = null;
+    $textContent = null;
+    $image = null;
+
+    $action="db/insertContent.php?modo=submit";
+
+    require_once('db/connection.php');
+    $connect = connectionMySQL();  
+
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'edit'){
+            if(isset($_GET['id'])){
+                
+                $id = $_GET['id'];
+
+                $sql = "
+                    select * from tblCuriosity
+                    where idCuriosity =".$id;
+
+                $selectDates = mysqli_query($connect, $sql);
+
+                if($rsListCuriosity = mysqli_fetch_assoc($selectDates)){
+
+                    $title = $rsListCuriosity['title'];
+                    $textContent = $rsListCuriosity['textContent'];
+                    $image = "<img class='photo' src='db/archives/".$rsListCuriosity['image']."'>";
+
+                    $action = "db/updateContent.php?modo=update&id=".$rsListCuriosity['idCuriosity'];
+
+                }
+            }
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -65,14 +99,14 @@
            </div>
            <div class="admin-content">
                 <div id="admin-curiosity">
-                    <div class="title title-content">
+                    <div class="title title-function">
                         Config. Curiosidade
-                        <button id="new-curiosity" onclick="newCuriosity()">Nova Curiosidade</button>
+                        <input type="submit" class="button" id="new-curiosity" onclick="newCuriosity()" value="Curiosidades">
                     </div>
                     <div class="config-curiosity" id="config-curiosity">
-                        <form name="formCuriosity" id="form-curiosity" action="db/insertContent.php?modo=submit" method="post" enctype="multipart/form-data">
-                            <input type="text" name="titleCuriosity" id="title-curiosity" placeholder="Titulo">
-                            <textarea name="textCuriosity" id="text-curiosity" placeholder="Curiosidades da empresa"></textarea>
+                        <form name="formCuriosity" id="form-curiosity" action="<?=$action?>" method="post" enctype="multipart/form-data">
+                            <input type="text" name="titleCuriosity" id="title-curiosity" placeholder="Titulo" value="<?=$title?>">
+                            <textarea name="textCuriosity" id="text-curiosity" placeholder="Curiosidades da empresa"><?=$textContent?></textarea>
                             <div class="buttons">
                                 <button name="saveCuriosity" id="save-curiosity" class="button" >SALVAR</button>
                             </div>
@@ -80,7 +114,7 @@
                         <form name="formCuriosityImage" id="form-image-curiosity" action="db/uploadImage.php" method="post" enctype="multipart/form-data">
                             <label class="file-selector" for="image-curiosity">Escolha uma imagem &#187;</label>
                             <input type="file" name="imageCuriosity" id="image-curiosity" accept="image/jpeg, image/png">
-                            <div id="image-box" class="image-box"></div>
+                            <div id="image-box" class="image-box"><?=$image?></div>
                         </form>
                     </div>
                     <div class="show-content" id="show-content">
@@ -104,7 +138,11 @@
 
                             <tr class="line-curiosity">
                                 <td class="collumn-content collumn-title"><?=$rsCuriosity['title']?></td>
-                                <td class="collumn-content collumn-text"><?=$rsCuriosity['textContent']?></td>
+                                <td class="collumn-content collumn-text">
+                                    <div class="show-text">
+                                        <?=$rsCuriosity['textContent']?>
+                                    </div>
+                                </td>
                                 <td class="collumn-content collumn-image">
                                     <img src="db/archives/<?=$rsCuriosity['image']?>" alt="image undefined" class="image">
                                 </td>
@@ -118,6 +156,12 @@
                                     " href="db/deleteDate.php?modo=deleteCuriosity&id=<?=$rsCuriosity['idCuriosity']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                        </svg>
+                                    </a>
+
+                                    <a class="delete-link" href="curiosityConfig.php?modo=edit&id=<?=$rsCuriosity['idCuriosity']?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
+                                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     

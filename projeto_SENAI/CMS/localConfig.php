@@ -1,6 +1,47 @@
 <?php
     require_once('functions/menu.php');
 
+    $name = null;
+    $email = null;
+    $state = null;
+    $city = null;
+    $street = null;
+    $number = null;
+    $map = null;
+
+    $action="db/insertContent.php?modo=submit";
+
+    require_once('db/connection.php');
+    $connect = connectionMySQL();  
+
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'edit'){
+            if(isset($_GET['id'])){
+                
+                $id = $_GET['id'];
+
+                $sql = "
+                    select * from tblLocation
+                    where idLocation =".$id;
+
+                $selectDates = mysqli_query($connect, $sql);
+
+                if($rsListLocal = mysqli_fetch_assoc($selectDates)){
+
+                    $name = $rsListLocal['localName'];
+                    $email = $rsListLocal['email'];
+                    $state = $rsListLocal['state'];
+                    $city = $rsListLocal['city'];
+                    $street = $rsListLocal['street'];
+                    $number = $rsListLocal['localNumber'];
+                    $map = $rsListLocal['map'];
+
+                    $action = "db/updateContent.php?modo=update&id=".$rsListLocal['idLocation'];
+
+                }
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,6 +51,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contentconfig.css">
     <link rel="stylesheet" href="css/showLocal.css">
+    <script src="js/adminContent.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
     <script>
@@ -59,21 +101,23 @@
            <div class="admin-content">
                
                 <div id="admin-localization">
-                    <div class="title title-content">Config. Localização</div>
-                    <form name="formLocalization" id="form-local" action="db/insertContent.php?modo=submit" method="post">
-                        <input type="text" class="input-info" name="storeName" id="name" placeholder="Nome da Loja">
-                        <input type="text" class="input-info" name="email" id="email" placeholder="Email da Loja">
-                        <input type="text" class="input-info" name="state" id="state" placeholder="Estado">
-                        <input type="text" class="input-info" name="city" id="city" placeholder="Cidade">
-                        <input type="text" class="input-info" name="street" id="street" placeholder="Rua">
-                        <input type="text" class="input-info" name="number" id="number" placeholder="Numero">    
-                        <textarea name="map" id="map" cols="30" rows="10" placeholder="iframe do mapa"></textarea>                    
+                    <div class="title title-function">
+                        Config. Localização
+                        <input type="submit" class="button" id="new-local" onclick="newLocal()" value="Localização das Lojas">
+                    </div>
+                    <form name="formLocalization" id="form-local" action="<?=$action?>" method="post">
+                        <input type="text" class="input-info" name="storeName" id="name" placeholder="Nome da Loja" value="<?=$name?>">
+                        <input type="text" class="input-info" name="email" id="email" placeholder="Email da Loja" value="<?=$email?>">
+                        <input type="text" class="input-info" name="state" id="state" placeholder="Estado" value="<?=$state?>">
+                        <input type="text" class="input-info" name="city" id="city" placeholder="Cidade" value="<?=$city?>">
+                        <input type="text" class="input-info" name="street" id="street" placeholder="Rua" value="<?=$street?>">
+                        <input type="text" class="input-info" name="number" id="number" placeholder="Numero" value="<?=$number?>">    
+                        <textarea name="map" id="map" cols="30" rows="10" placeholder="iframe do mapa"><?=$map?></textarea>                    
                         <div class="buttons">
                             <button name="saveLocal" id="save-local" class="button" >SALVAR</button>
                         </div>
                     </form>
-                    <div class="show-content">
-                        <div class="title title-content">Localizações</div>
+                    <div class="show-content" id="show-content">
                         <table class="table">
                             <tr class="line-local">
                                 <td class="collumn">NOME</td>
@@ -104,6 +148,12 @@
                                     " href="db/deleteDate.php?modo=deleteLocal&id=<?=$rsLocal['idLocation']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                        </svg>
+                                    </a>
+
+                                    <a class="delete-link" href="localConfig.php?modo=edit&id=<?=$rsLocal['idLocation']?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
+                                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     

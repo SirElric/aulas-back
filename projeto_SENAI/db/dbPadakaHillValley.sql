@@ -18,6 +18,7 @@ create table tblContact(
 );
 create table tblConstraint(
 	idConstraint int auto_increment not null,
+    levelName varchar(15),
     admnisterLevel boolean,
 	operatorLevel boolean,
 	clientLevel boolean,
@@ -65,7 +66,3 @@ create table tblLocation(
     display boolean not null,
     primary key (idLocation)
 );
-
-show tables;
-
-select * from tblCuriosity;

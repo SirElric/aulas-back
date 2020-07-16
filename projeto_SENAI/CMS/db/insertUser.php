@@ -8,7 +8,7 @@
             if(isset($_POST['saveButton'])){
                 $mainName = $_POST['name'];
                 $surname = $_POST['surname'];
-                $name = $mainName." ".$surname;
+                $name = $mainName."-".$surname;
 
                 $email = $_POST['email'];
                 $cpf = $_POST['cpf'];

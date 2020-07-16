@@ -1,10 +1,61 @@
 <?php
 
+$name = null;
+$surname = null;
+$email = null;
+$cpf = null;
+$password = null;
+$birthBR = null;
+$cellphone = null;
+$tellphone = null;
+$idConstraint = 0;
+
 $action ="db/insertUser.php?modo=inserir";
 
 require_once("connection.php");
 $connect = connectionMySQL();
 
+if (isset($_POST['modo'])) {
+
+    if ($_POST['modo'] == 'edit') {
+
+        if (isset($_POST['id'])) {
+
+            $id = $_POST['id'];
+
+            $sql = "
+                select tblUser.*, tblConstraint.levelName as level
+                from tblUser, tblConstraint
+                where tblConstraint.idConstraint = tblUser.idConstraint 
+                and tblUser.idUser =". $id;
+
+            echo($sql);
+            $selectDates = mysqli_query($connect, $sql);
+
+            if ($rsListUser = mysqli_fetch_assoc($selectDates)) {
+
+                $username = explode("-", $rsListUser['username']);
+
+                $name = $username[0];
+                $surname = $username[1];
+                $email = $rsListUser['email'];
+                $cpf = $rsListUser['cpf'];
+                $password = $rsListUser['userpassword'];
+                
+                $cellphone = $rsListUser['cellphone'];
+                $tellphone = $rsListUser['tellphone'];
+
+                $idConstraint = $rsListUser['idConstraint'];
+                $level = $rsListUser['level'];
+
+                $birthEUA = explode("-", $rsListUser['birthDate']);
+                $birthBR = $birthEUA[2]."/".$birthEUA[1]."/".$birthEUA[0];
+
+                
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,19 +78,31 @@ $connect = connectionMySQL();
         <div class="title-newuser">
             Cadastro novo usuario
         </div>
-        <form class="form" name="formNewUser" method="post" action="db/insertUser.php?modo=inserir">
-            <input type="text" name="name" id="name" placeholder="NOME">
-            <input type="text" name="surname" id="surname" placeholder="SOBRENOME">
-            <input type="text" name="email" id="email" placeholder="E-MAIL">
-            <input type="text" name="cpf" id="cpf" placeholder="CPF">
-            <input type="text" name="password" id="password" placeholder="SENHA">
-            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
-            <input type="text" name="cellphone" id="cellphone" placeholder="CELULAR">
-            <input type="text" name="tellphone" id="tellphone" placeholder="TELEFONE">
+        <form class="form" name="formNewUser" method="post" action="<?=$action?>">
+            <input type="text" name="name" id="name" placeholder="NOME" value="<?=$name?>">
+            <input type="text" name="surname" id="surname" placeholder="SOBRENOME" value="<?=$surname?>">
+            <input type="text" name="email" id="email" placeholder="E-MAIL" value="<?=$email?>">
+            <input type="text" name="cpf" id="cpf" placeholder="CPF" value="<?=$cpf?>">
+            <input type="text" name="password" id="password" placeholder="SENHA" value="<?=$password?>">
+            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO" value="<?=$birthBR?>" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+            <input type="text" name="cellphone" id="cellphone" placeholder="CELULAR" value="<?=$cellphone?>">
+            <input type="text" name="tellphone" id="tellphone" placeholder="TELEFONE" value="<?=$tellphone?>">
             <select name="permission" id="permission">
-                <option value="" selected>PERMISSÂO</option>
                 <?php
-                    echo("teste1");
+
+                    if(isset($_POST['modo']))
+                    {
+                        if($_POST['modo']=='edit')
+                        {
+                            ?>
+                                <option value="<?=$idConstraint?>" selected><?=$level?></option>
+                            <?php
+                        }
+                    }else{
+                        ?>
+                            <option value="" selected> Selecione um item </option>
+                        <?php
+                    }
                     
                     $sql = "select * from tblConstraint
                             order by idConstraint";
@@ -48,7 +111,6 @@ $connect = connectionMySQL();
 
                     while($rsLevel = mysqli_fetch_assoc($selectLevel)){
 
-                        echo("teste2");
                         ?>
                             <option value="<?=$rsLevel['idConstraint']?>"><?=$rsLevel['levelName']?></option>
                         <?php
