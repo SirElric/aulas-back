@@ -31,7 +31,7 @@ create table tblUser(
     birthDate date not null,
     email varchar(100) not null,
     cpf varchar(15) not null,
-    userpassword varchar(15) not null,
+    userpassword varchar(50) not null,
     cellphone varchar(20) not null,
     tellphone varchar(20),
     primary key (idUser),

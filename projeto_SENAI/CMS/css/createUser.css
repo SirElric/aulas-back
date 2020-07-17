@@ -24,7 +24,7 @@
     color: #ffffff;
 }
 
-.form{
+.form-create{
     display: grid;
     grid-template-areas: 
         "name surname"
@@ -38,11 +38,27 @@
     padding: 2vw;
 }
 
+.form-edit{
+    display: grid;
+    grid-template-areas: 
+        "password newpassword"
+        "email email"
+        "cpf cpf"
+        "name surname"
+        "birth birth"
+        "cellphone tellphone"
+        "permission permission"
+        "buttons buttons";
+    gap: 10px;
+    padding: 2vw;
+}
+
 /*Register*/
 #name{ grid-area: name;}
 #surname{ grid-area: surname;}
 #cpf{ grid-area: cpf;}
 #password{ grid-area: password;}
+#newpassword{ grid-area: newpassword;}
 #birth-date{ grid-area: birth;}
 #email{ grid-area: email;}
 #cellphone{ grid-area: cellphone;}

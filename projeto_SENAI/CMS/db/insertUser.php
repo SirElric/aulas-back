@@ -12,7 +12,8 @@
 
                 $email = $_POST['email'];
                 $cpf = $_POST['cpf'];
-                $password = $_POST['password'];
+                $password = md5($_POST['password']);
+
                 $cellphone = $_POST['cellphone'];
                 $tellphone = $_POST['tellphone'];
 

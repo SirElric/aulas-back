@@ -62,7 +62,7 @@
         function showCuriosity(idCuriosity){
             $.ajax({
                 type: "POST",
-                url: "db/showCuriosity.php",
+                url: "functions/showCuriosity.php",
                 data: {modo:'view', id:idCuriosity},
                 success: function (dados){
                     $('#show-curiosity').html(dados);

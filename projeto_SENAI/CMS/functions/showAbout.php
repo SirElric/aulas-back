@@ -3,7 +3,7 @@
         if($_POST['modo'] == 'view'){
             if(isset($_POST['id'])){
                 //Import da biblioteca de conexão
-                require_once('connection.php');
+                require_once('../db/connection.php');
 
                 //Abre a conexão com o BD
                 $connect = connectionMySQL();

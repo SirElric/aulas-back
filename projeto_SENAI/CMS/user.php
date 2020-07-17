@@ -30,7 +30,7 @@
         function newUser(){
             $.ajax({
                 type: "POST",
-                url: "db/createUser.php",
+                url: "functions/createUser.php",
                 success: function (dados){
                     $('#newUser').html(dados);
                 }
@@ -39,7 +39,7 @@
         function editUser(idUser){
             $.ajax({
                 type: "POST",
-                url: "db/createUser.php",
+                url: "functions/editUser.php",
                 data: {modo:'edit', id:idUser},
                 success: function (dados){
                     $('#newUser').html(dados);

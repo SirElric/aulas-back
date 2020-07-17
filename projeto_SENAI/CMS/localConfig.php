@@ -63,7 +63,7 @@
         function showLocal(idLocal){
             $.ajax({
                 type: "POST",
-                url: "db/showLocal.php",
+                url: "functions/showLocal.php",
                 data: {modo:'view', id:idLocal},
                 success: function (dados){
                     $('#show-local').html(dados);

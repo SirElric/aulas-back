@@ -25,7 +25,7 @@
         function showContact(idContact){
             $.ajax({
                 type: "POST",
-                url: "db/showDate.php",
+                url: "functions/showDate.php",
                 data: {modo:'view', id:idContact},
                 success: function (dados){
                     $('#showContent').html(dados);

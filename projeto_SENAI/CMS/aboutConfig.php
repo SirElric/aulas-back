@@ -52,7 +52,7 @@
         function showAbout(idAbout){
             $.ajax({
                 type: "POST",
-                url: "db/showAbout.php",
+                url: "functions/showAbout.php",
                 data: {modo:'view', id:idAbout},
                 success: function (dados){
                     $('#show-about').html(dados);

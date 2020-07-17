@@ -1,18 +1,6 @@
 <?php
 
-$name = null;
-$surname = null;
-$email = null;
-$cpf = null;
-$password = null;
-$birthBR = null;
-$cellphone = null;
-$tellphone = null;
-$idConstraint = 0;
-
-$action ="db/insertUser.php?modo=inserir";
-
-require_once("connection.php");
+require_once("../db/connection.php");
 $connect = connectionMySQL();
 
 if (isset($_POST['modo'])) {
@@ -29,7 +17,6 @@ if (isset($_POST['modo'])) {
                 where tblConstraint.idConstraint = tblUser.idConstraint 
                 and tblUser.idUser =". $id;
 
-            echo($sql);
             $selectDates = mysqli_query($connect, $sql);
 
             if ($rsListUser = mysqli_fetch_assoc($selectDates)) {
@@ -51,7 +38,7 @@ if (isset($_POST['modo'])) {
                 $birthEUA = explode("-", $rsListUser['birthDate']);
                 $birthBR = $birthEUA[2]."/".$birthEUA[1]."/".$birthEUA[0];
 
-                
+                $action = "db/updateUser.php?modo=update&id=".$rsListUser['idUser'];
             }
         }
     }
@@ -76,15 +63,16 @@ if (isset($_POST['modo'])) {
 <body>
     <div class="modal">
         <div class="title-newuser">
-            Cadastro novo usuario
+            Edição de usuario
         </div>
-        <form class="form" name="formNewUser" method="post" action="<?=$action?>">
+        <form class="form-edit" name="formNewUser" method="post" action="<?=$action?>">
             <input type="text" name="name" id="name" placeholder="NOME" value="<?=$name?>">
             <input type="text" name="surname" id="surname" placeholder="SOBRENOME" value="<?=$surname?>">
             <input type="text" name="email" id="email" placeholder="E-MAIL" value="<?=$email?>">
             <input type="text" name="cpf" id="cpf" placeholder="CPF" value="<?=$cpf?>">
-            <input type="text" name="password" id="password" placeholder="SENHA" value="<?=$password?>">
-            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO" value="<?=$birthBR?>" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+            <input type="text" name="password" id="password" placeholder="SENHA ATUAL">
+            <input type="text" name="newpassword" id="newpassword" placeholder="NOVA SENHA">
+            <input type="text" name="birth" id="birth-date" placeholder="DATA NASCIMENTO" value="<?=$birthBR?>">
             <input type="text" name="cellphone" id="cellphone" placeholder="CELULAR" value="<?=$cellphone?>">
             <input type="text" name="tellphone" id="tellphone" placeholder="TELEFONE" value="<?=$tellphone?>">
             <select name="permission" id="permission">
@@ -111,9 +99,9 @@ if (isset($_POST['modo'])) {
 
                     while($rsLevel = mysqli_fetch_assoc($selectLevel)){
 
-                        ?>
-                            <option value="<?=$rsLevel['idConstraint']?>"><?=$rsLevel['levelName']?></option>
-                        <?php
+                ?>
+                    <option value="<?=$rsLevel['idConstraint']?>"><?=$rsLevel['levelName']?></option>
+                <?php
                     }
                 ?>
             </select>
