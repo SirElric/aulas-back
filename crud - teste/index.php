@@ -373,7 +373,6 @@ if(isset($_GET['modo']))
                     //Estrtutura de repetição para listar os contatos na lista, utilizamos a função mysqli_fetch_assoc() para transformar o resultado do BD em um ArratList.
                     while ($rsContatos = mysqli_fetch_assoc($selectContatos))
                     {
-
                         ?>
                         <tr id="tblLinhas">
                             <td class="tblColunas"><?=$rsContatos['nomeContato']?></td>

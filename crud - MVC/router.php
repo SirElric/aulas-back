@@ -39,7 +39,11 @@
                         break;
 
                         case 'EXCLUIR':
-                            $contatoController->excluirContato();
+                            //Recebe o id do registro que foi encaminhado na view
+                            $id = $_GET['id'];
+
+                            //Chama o metodo excluirContato
+                            $contatoController->excluirContato($id);
                         break;
                     }
                 }

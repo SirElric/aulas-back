@@ -51,7 +51,7 @@ class mysqlConnection{
     }
 
     // Metodo para fechar a conexaõ com o banco de dados;
-    public function cleseDatabase(){
+    public function closeDatabase(){
         $conexao = null;
 
         //mysqli_close();

@@ -37,7 +37,7 @@
                                 //existem outras formas de criptografia tais como:
                                     //md5()
                                     //sha1()
-                                    //hash(tipo de criptogradia, var iaverl)
+                                    //hash(tipo de criptogradia, variaverl)
                             $nomeArquivoCripty = md5($nomeArquivo . uniqid(time()));
 
                             //juntamos novamente o nome do arquivo ja alterado com sua extenção original

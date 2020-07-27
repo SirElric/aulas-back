@@ -144,18 +144,33 @@
                 <td class="tblColunas"> Imagem </td>
                 <td class="tblColunas"> Opções </td>
             </tr>
+
+            <?php 
+                //Import da class Controler
+                require_once('controller/contatoController.php');
+
+                //Instancia a controller
+                $listContatoController = new ContatoController();
+
+                //Chama o metodo para listar todos os contatos
+                $dadosContatos = $listContatoController->ListarContato();
+
+                $cont = 0;
+
+                while($cont < count($dadosContatos)){
+
+            ?>
+
             <tr id="tblLinhas">
+                <td class="tblColunas"><?=$dadosContatos[$cont]->getNome()?></td>
+                <td class="tblColunas"><?=$dadosContatos[$cont]->getCelular()?></td>
+                <td class="tblColunas"><?=$dadosContatos[$cont]->getIdEstado()?></td>
+                <td class="tblColunas"><?=$dadosContatos[$cont]->getEmail()?></td>
                 <td class="tblColunas"></td>
-                <td class="tblColunas"></td>
-                <td class="tblColunas"></td>
-                <td class="tblColunas"></td>
-                <td class="tblColunas">
-                    <img src="db/arquivos/" class="demoImg" alt="image undefined">
-                </td>
                 <td class="tblColunas"> 
                     <div class="tblImagens">
                         <a onclick="return confirm('Deseja realmente excluir o registro?');
-                        " href="db/deleteContato.php?modo=excluir&id=&image=">
+                        " href="router.php?controller=contatos&modo=excluir&id=<?=$dadosContatos[$cont]->getIdContato()?>">
                             <div class="fechar"></div>
                             </a>
                             <div class="visualizar" onclick="visualizarContato();"></div>
@@ -166,6 +181,11 @@
                     </div>
                 </td>
             </tr>
+
+            <?php 
+                $cont+=1;
+                }
+            ?>
                 
             <tr id="tblLinhas">
                 <td class="tblColunas">  </td>

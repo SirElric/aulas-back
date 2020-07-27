@@ -16,7 +16,12 @@
 
 class ContatoController{
     
-    public function __construct(){}
+    public function __construct(){
+        
+        require_once('model/DAO/contatoDAO.php');
+
+        require_once('model/contatoClass.php');
+    }
 
     public function inserirContato(){
         //Valida qual o metódo de requisição estará chegando pelo HTTP (POST, GET, PUT/PUSH e DELETE)
@@ -67,9 +72,21 @@ class ContatoController{
 
     public function atualizarContato(){}
 
-    public function excluirContato(){}
+    public function excluirContato($idContato){
+        //Instancia da classe contatoDAO
+        $contatoDAO = new ContatoDAO;
 
-    public function listarContato(){}
+        //chama o metodo para excluir o registro do banco de dados
+        $contatoDAO->deleteContato($idContato);
+    }
+
+    public function listarContato(){
+        //Isntancia da class Contato
+        $listContatoDAO = new ContatoDAO();
+
+        //chama o metodo para buscar todos os dados no banco de dados
+        return $listContatoDAO->selectAllContato();
+    }
 
     public function buscarContato(){}
 

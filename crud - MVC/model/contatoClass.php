@@ -15,6 +15,7 @@
 
 class Contato{
 
+    private $id;
     private $nome;
     private $endereco;
     private $bairro;
@@ -26,6 +27,13 @@ class Contato{
     private $dtNasc;
     private $sexo;
     private $obs;
+
+    public function getIdContato(){
+        return $this->id;
+    }
+    public function setIdContato($id){
+        $this->id = $id;
+    }
 
     public function getNome(){
         return $this->nome;
