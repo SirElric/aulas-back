@@ -1,10 +1,10 @@
 <?php
-    require_once('functions/menu.php');
-
     $title = null;
     $textContent = null;
 
-    $action="db/insertContent.php?modo=submit";
+    $constraint=$_GET['constraint'];
+
+    $action="db/insertContent.php?modo=submit&constraint=".$constraint;
 
     require_once('db/connection.php');
     $connect = connectionMySQL();   
@@ -26,7 +26,7 @@
                     $title = $rsListAbout['title'];
                     $textContent = $rsListAbout['textContent'];
 
-                    $action = "db/updateContent.php?modo=update&id=".$rsListAbout['idAbout'];
+                    $action = "db/updateContent.php?modo=update&constraint=".$constraint."&id=".$rsListAbout['idAbout'];
                 }
             }
         }
@@ -73,20 +73,11 @@
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <?=(menu());?>
-        <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        <div class="menu">
+            <?php require_once('functions/menu.php')?>
+            <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        </div>
         <div class="content">
-           <div class="options">
-                <a href="curiosityConfig.php">
-                    <div class="page" >Curiosidade</div>
-                </a>
-                <a href="aboutConfig.php">
-                    <div class="page" >Sobre</div>
-                </a>
-                <a href="LocalConfig.php">
-                    <div class="page" >Localização</div>
-                </a>
-           </div>
            <div class="admin-content">
 
                 <div id="admin-about">
@@ -96,9 +87,7 @@
                     </div>
                     <form name="formabout" id="form-about" action="<?=$action?>" method="post">
                         <input type="text" name="titleAbout" id="title-about" placeholder="Titulo" value="<?=$title?>">
-                        <textarea name="textAbout" id="text-about" placeholder="Sobre a empresa">
-                            <?=$textContent?>
-                        </textarea>
+                        <textarea name="textAbout" id="text-about" placeholder="Sobre a empresa"><?=$textContent?></textarea>
                         <div class="buttons">
                             <button name="saveAbout" id="save-about" class="button" >SALVAR</button>
                         </div>
@@ -129,19 +118,19 @@
                                     </svg>
 
                                     <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
-                                        " href="db/deleteDate.php?modo=deleteAbout&id=<?=$rsAbout['idAbout']?>">
+                                        " href="db/deleteDate.php?modo=deleteAbout&constraint=<?=$constraint?>&id=<?=$rsAbout['idAbout']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </a>
 
-                                    <a class="delete-link" href="aboutConfig.php?modo=edit&id=<?=$rsAbout['idAbout']?>">
+                                    <a class="delete-link" href="aboutConfig.php?modo=edit&constraint=<?=$constraint?>&id=<?=$rsAbout['idAbout']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     
-                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayAbout&id=<?=$rsAbout['idAbout']?>">
+                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayAbout&constraint=<?=$constraint?>&id=<?=$rsAbout['idAbout']?>">
                                         <?php
                                             if($rsAbout['display'] == true){
                                                 echo("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='use option-icon'> 

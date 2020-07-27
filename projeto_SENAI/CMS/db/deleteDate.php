@@ -1,5 +1,7 @@
 <?php
 
+$constraint = $_GET['constraint'];
+
 if(isset($_GET['modo'])){
 
     if ($_GET['modo'] == 'excluir'){
@@ -16,7 +18,7 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
                 
-                header('location:../contact.php');
+                header('location:../contact.php?constraint='.$constraint);
             } 
         }
     }
@@ -34,8 +36,8 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../user.php');
-
+                header('location:../user.php?constraint='.$constraint); 
+                exit;
             }
         }
     }
@@ -52,8 +54,8 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../curiosityConfig.php');
-
+                header('location:../curiosityConfig.php?constraint='.$constraint);
+                exit;
             }
         }
     }elseif ($_GET['modo'] == 'deleteAbout') {
@@ -69,8 +71,8 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../aboutConfig.php');
-
+                header('location:../aboutConfig.php?constraint='.$constraint);
+                exit;
             }
         }
     }elseif ($_GET['modo'] == 'deleteLocal') {
@@ -86,8 +88,8 @@ if(isset($_GET['modo'])){
             
             if(mysqli_query($connect, $sql)){
 
-                header('location:../localConfig.php');
-
+                header('location:../localConfig.php?constraint='.$constraint);
+                exit;
             }
         }
     }

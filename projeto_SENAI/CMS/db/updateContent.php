@@ -7,12 +7,15 @@
             require_once('connection.php');
             $connect = connectionMySQL();  
 
+            $constraint = $_GET['constraint'];
+
             $id = $_GET['id'];
 
             if(isset($_POST['saveCuriosity'])){         
 
                 $title = $_POST['titleCuriosity'];
                 $textContent = $_POST['textCuriosity'];
+                
                 session_start();
                 $image = $_SESSION['imageCuriosity'];
 
@@ -28,13 +31,16 @@
                     echo("
                             <script> 
                                 alert('Registro editado com sucesso!');
-                                location.href = '../curiosityConfig.php';
+                                location.href = '../curiosityConfig.php?constraint=".$constraint."';
                             </script>
                             
                     ");
                     session_destroy();
                 }else{
-                    echo($sql);  
+                    echo("<script> 
+                        alert('Erro ao executar o script!') 
+                        window.history.back();
+                    </script>");    
                 }
 
             }elseif (isset($_POST['saveAbout'])) {
@@ -53,12 +59,15 @@
                     echo("
                             <script> 
                                 alert('Registro editado com sucesso!');
-                                location.href = '../aboutConfig.php';
+                                location.href = '../aboutConfig.php?constraint=".$constraint."';
                             </script>
                             
                     ");
                 }else{
-                    echo($sql);  
+                    echo("<script> 
+                        alert('Erro ao executar o script!') 
+                        window.history.back();
+                    </script>");   
                 }
             }elseif (isset($_POST['saveLocal'])) {
 
@@ -84,14 +93,16 @@
                 
                 if(mysqli_query($connect, $sql)){
                     echo("
-                            <script> 
-                                alert('Registro editado com sucesso!');
-                                location.href = '../localConfig.php';
-                            </script>
-                            
+                        <script> 
+                            alert('Registro editado com sucesso!');
+                            location.href = '../localConfig.php?constraint=".$constraint."';
+                        </script>
                     ");
                 }else{
-                    echo($sql);  
+                    echo("<script> 
+                        alert('Erro ao executar o script!') 
+                        window.history.back();
+                    </script>");   
                 }
             }
         }      

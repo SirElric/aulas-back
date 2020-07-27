@@ -1,11 +1,13 @@
 <?php
-    require_once('functions/menu.php');
 
     $title = null;
     $textContent = null;
     $image = null;
+    $imageBox = null;
 
-    $action="db/insertContent.php?modo=submit";
+    $constraint=$_GET['constraint'];
+
+    $action="db/insertContent.php?modo=submit&constraint=".$constraint;
 
     require_once('db/connection.php');
     $connect = connectionMySQL();  
@@ -26,9 +28,11 @@
 
                     $title = $rsListCuriosity['title'];
                     $textContent = $rsListCuriosity['textContent'];
-                    $image = "<img class='photo' src='db/archives/".$rsListCuriosity['image']."'>";
+                    $image = $rsListCuriosity['image'];
 
-                    $action = "db/updateContent.php?modo=update&id=".$rsListCuriosity['idCuriosity'];
+                    $imageBox = "<img class='photo' src='db/archives/".$rsListCuriosity['image']."'>";
+
+                    $action = "db/updateContent.php?modo=update&constraint=".$constraint."&id=".$rsListCuriosity['idCuriosity'];
 
                 }
             }
@@ -83,20 +87,13 @@
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <?=(menu());?>
-        <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        
+        <div class="menu">
+            <?php require_once('functions/menu.php')?>
+            <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        </div>
+        
         <div class="content">
-           <div class="options">
-                <a href="curiosityConfig.php">
-                    <div class="page" >Curiosidade</div>
-                </a>
-                <a href="aboutConfig.php">
-                    <div class="page" >Sobre</div>
-                </a>
-                <a href="LocalConfig.php">
-                    <div class="page" >Localização</div>
-                </a>
-           </div>
            <div class="admin-content">
                 <div id="admin-curiosity">
                     <div class="title title-function">
@@ -114,7 +111,7 @@
                         <form name="formCuriosityImage" id="form-image-curiosity" action="db/uploadImage.php" method="post" enctype="multipart/form-data">
                             <label class="file-selector" for="image-curiosity">Escolha uma imagem &#187;</label>
                             <input type="file" name="imageCuriosity" id="image-curiosity" accept="image/jpeg, image/png">
-                            <div id="image-box" class="image-box"><?=$image?></div>
+                            <div id="image-box" class="image-box"></div>
                         </form>
                     </div>
                     <div class="show-content" id="show-content">
@@ -153,19 +150,19 @@
                                     </svg>
 
                                     <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteDate.php?modo=deleteCuriosity&id=<?=$rsCuriosity['idCuriosity']?>">
+                                    " href="db/deleteDate.php?modo=deleteCuriosity&constraint=<?=$constraint?>&id=<?=$rsCuriosity['idCuriosity']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </a>
 
-                                    <a class="delete-link" href="curiosityConfig.php?modo=edit&id=<?=$rsCuriosity['idCuriosity']?>">
+                                    <a class="delete-link" href="curiosityConfig.php?modo=edit&constraint=<?=$constraint?>&id=<?=$rsCuriosity['idCuriosity']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     
-                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayCuriosity&id=<?=$rsCuriosity['idCuriosity']?>">
+                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayCuriosity&constraint=<?=$constraint?>&id=<?=$rsCuriosity['idCuriosity']?>">
                                         <?php
                                             if($rsCuriosity['display'] == true){
                                                 echo("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='use option-icon'> 

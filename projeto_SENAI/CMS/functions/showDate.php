@@ -16,15 +16,26 @@
 
                 if($rsContacts = mysqli_fetch_assoc($selectContact)){
                     $name = $rsContacts['clientName'];
-                    $telephone = $rsContacts['telephone'];
+                    $tellphone = $rsContacts['telephone'];
                     $cellphone = $rsContacts['cellphone'];
                     $profession = $rsContacts['profession'];
-                    $gender = $rsContacts['gender'];
                     $email = $rsContacts['email'];
                     $homePage = $rsContacts['homePage'];
                     $facebook = $rsContacts['facebook'];
                     $message = $rsContacts['message'];
-                    $optionMessage = $rsContacts['optionMessage'];
+                    
+
+                    if ($rsContacts['gender'] == 1) {
+                        $gender = "Masculino";
+                    }else{
+                        $gender = "Feminino";
+                    }
+
+                    if ($rsContacts['optionMessage'] == 1) {
+                        $optionMessage = "Critica: ";
+                    }else{
+                        $optionMessage = "Sugestão: ";
+                    }
                 }
             }
         }
@@ -40,7 +51,7 @@
     <script>
         $(document).ready(function(){
                 $('.exit').click(function(){
-                    $('#showContact').fadeOut(500);
+                    $('#modal').fadeOut(500);
 
                 });
             });
@@ -48,74 +59,51 @@
     <title>Show Contact</title>
 </head>
 <body>
-    <div>
-        <table class="tblInfo">
-            <tr class="trtitle">
-                <td class="tdInfo" colspan="2">
-                    <h1 class="title">Contato</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="exit">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                    </svg>
-                </td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Nome:</td>
-                <td class="tdInfo"><?=$name?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Telefone</td>
-                <td class="tdInfo"><?=$telephone?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Celular:</td>
-                <td class="tdInfo"><?=$cellphone?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Profession:</td>
-                <td class="tdInfo"><?=$profession?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">Gênero:</td>
-                <td class="tdInfo">
-                    <?php 
-                        if($gender == '0'){
-                            echo('Feminino');
-                        }else{
-                            echo('Masculino');
-                        } 
-                    ?>
-                </td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">E-mail:</td>
-                <td class="tdInfo"><?=$email?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">HomePage:</td>
-                <td class="tdInfo"><?=$homePage?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">FaceBook:</td>
-                <td class="tdInfo"><?=$facebook?></td>
-            </tr>
-            <tr class="trInfo">
-                <td class="tdType">
-                    <?php 
-                        if($optionMessage == '0'){
-                            echo('Sugestão');
-                        }else{
-                            echo('Critica');
-                        } 
-                    ?>
-                </td>
-                <td class="tdInfo">
-                    <div class="divInfo">
-                        <?=$message?>
-                    </div>
-                </td>
-            </tr>
-        </table>
+<div class="modal">
+        <div class="title-showUser">
+            <h1>Usuario</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="exit">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+        <div class="informations">
+            <div id="name" class="info">
+                Nome:<br>
+                <?=$name?>
+            </div>
+            <div id="profession" class="info">
+                Profissão:<br>
+                <?=$profession?>
+            </div>
+            <div id="gender" class="info">
+                Genero:<br>
+                <?=$gender?>
+            </div>
+            <div id="email" class="info">
+                E-mail:<br>
+                <?=$email?>
+            </div>
+            <div id="tellfone" class="info">
+                Telefone:<br>
+                <?=$tellphone?>
+            </div>
+            <div id="cellphone"class="info">
+                Celular:<br>
+                <?=$cellphone?>
+            </div>
+            <div id="facebook" class="info">
+                Facebook:<br>
+                <?=$facebook?>
+            </div>
+            <div id="homepage" class="info">
+                HomePage:<br>
+                <?=$homePage?>
+            </div>
+            <div id="message" class="info">
+                <?=$optionMessage?>
+                <?=$message?>
+            </div>
+        </div>
     </div>
 </body>
 </html>

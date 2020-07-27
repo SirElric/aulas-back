@@ -1,8 +1,8 @@
 <?php
-    require_once('functions/menu.php');
     require_once('db/connection.php');
     $connect = connectionMysql();
-    
+
+    $constraint = $_GET['constraint'];
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <script>
         $(document).ready(function(){
             $('.view').click(function(){
-                $('#showContact').fadeIn(1000);
+                $('#modal').fadeIn(500);
             });
         });
 
@@ -35,7 +35,7 @@
     </script>
 </head>
 <body>
-    <div id="showContact">
+    <div id="modal">
         <div id="showContent"></div>
     </div>
     <header>
@@ -45,13 +45,13 @@
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <?=(menu());?>
         <div class="content">
             <div id="titleBox" colspan="5">
+                <?php require_once('functions/menu.php')?>
                 <h1 class="title"> Consulta de Dados.</h1>
-                <form action="contact.php" method="POST">
+                <form id="form-filter" action="contact.php?constraint=<?=$constraint?>" method="POST">
                     <select name="filter" id="filterBox">
-                        <option value="">Filtrar</option>
+                        <option value="">Ordenar</option>
                         <option value="suggestion">Sugestão</option>
                         <option value="review">Critica</option>
                     </select>
@@ -109,7 +109,7 @@
                             <td class="tbColumn"><?=$rsContacts['email']?></td>
                             <td class="tbColumn"> 
                                 <a onclick="return confirm('Deseja realmente excluir o registro?');
-                                " href="db/deleteDate.php?modo=excluir&id=<?=$rsContacts['idContact']?>">
+                                " href="db/deleteDate.php?modo=excluir&constraint=<?=$constraint?>&id=<?=$rsContacts['idContact']?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete">
                                         <path d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>

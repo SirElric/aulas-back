@@ -6,7 +6,6 @@
 
 .title-content{
     width: 100%;
-    border-bottom: solid 1px black; 
 }
 .title-function{
     width: 100%;
@@ -19,22 +18,7 @@
 .content{
     height: auto;
     display: grid;
-    grid-template-columns: 15% 85%;
-}
-
-.options{
-    border-right: solid 1px black;
-}
-.page{
-    width: 100%;
-    height: 50px;
-    font: bold calc(10px + 10px)/50px arial;
-    text-align: center;
-    color: #1e1e1e;
-    cursor: pointer;
-}
-.page:hover{
-    background-color: #d3d3d3;
+    grid-template-columns: 100%;
 }
 
 #admin-curiosity{
@@ -182,17 +166,17 @@
 .line-curiosity{
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 435px 150px 60px;
+    grid-template-columns: 20% 60% 13% 7%;
 }
 .line-about{
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 585px 60px;
+    grid-template-columns: 23% 70% 7%;
 }
 .line-local{
     width: 100%;
     display: grid;
-    grid-template-columns: 200px 385px 260px;
+    grid-template-columns: 25% 50% 25%;
 }
 .collumn{
     height: 50px;

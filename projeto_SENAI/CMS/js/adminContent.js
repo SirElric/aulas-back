@@ -60,4 +60,4 @@ const newLocal = () => {
 
         $display = 0;
     }
-}      
+}

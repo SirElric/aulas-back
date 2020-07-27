@@ -1,0 +1,73 @@
+*{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    .modal{
+        width: 600px;
+        margin: 10vh auto;
+        background-color: #1e1e1e;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 1px 0px 5px #0a0a0a;
+    }
+    
+    .title-showUser{
+        height: 45px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 1px 0px 5px #0a0a0a;
+
+        display:flex;
+        justify-content: space-between;
+        padding-left: 10px;
+
+        text-align: center;
+        font: bolder calc(5px + 10px)/45px sans-serif;
+        color: #d3d3d3;
+    }
+
+    .exit{
+        width: 35px;
+        height: 35px;
+        margin-top: 5px;
+        fill: #dfdfdf;
+        cursor: pointer;
+        float: left;
+    }
+    .exit:hover{
+        fill: #121212;
+    }
+    
+    .informations{
+        display: grid;
+        grid-template-areas: 
+            "name name"
+            "email email"
+            "cpf birth"
+            "cellphone tellphone"
+            "permission permission";
+        gap: 10px;
+        padding: 10px;
+
+        font: bold calc(5px + 10px)/50 arial;
+        color: white;
+    }
+
+    .info{
+        box-shadow: 1px 0px 5px #0a0a0a;
+        border-radius: 5px;
+        padding: 10px;
+        line-height: 30px;
+    }
+    
+    /*Register*/
+    #name{ grid-area: name;}
+    #cpf{ grid-area: cpf;}
+    #birth{ grid-area: birth;}
+    #email{ grid-area: email;}
+    #cellphone{ grid-area: cellphone;}
+    #tellphone{ grid-area: tellphone;}
+    #permission{ grid-area: permission;}
+    

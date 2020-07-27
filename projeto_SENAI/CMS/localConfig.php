@@ -1,6 +1,4 @@
 <?php
-    require_once('functions/menu.php');
-
     $name = null;
     $email = null;
     $state = null;
@@ -9,7 +7,9 @@
     $number = null;
     $map = null;
 
-    $action="db/insertContent.php?modo=submit";
+    $constraint=$_GET['constraint'];
+
+    $action="db/insertContent.php?modo=submit&constraint=".$constraint;
 
     require_once('db/connection.php');
     $connect = connectionMySQL();  
@@ -36,7 +36,7 @@
                     $number = $rsListLocal['localNumber'];
                     $map = $rsListLocal['map'];
 
-                    $action = "db/updateContent.php?modo=update&id=".$rsListLocal['idLocation'];
+                    $action = "db/updateContent.php?modo=update&constraint=".$constraint."&id=".$rsListLocal['idLocation'];
 
                 }
             }
@@ -84,20 +84,11 @@
         <img class="logo" src="img/bread.png" alt="logo">
     </header>
     <main>
-        <?=(menu());?>
-        <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        <div class="menu">
+            <?php require_once('functions/menu.php')?>
+            <div class="title title-content">GERENCIAMENTO DE PAGINAS</div>
+        </div>
         <div class="content">
-           <div class="options">
-                <a href="curiosityConfig.php">
-                    <div class="page" >Curiosidade</div>
-                </a>
-                <a href="aboutConfig.php">
-                    <div class="page" >Sobre</div>
-                </a>
-                <a href="LocalConfig.php">
-                    <div class="page" >Localização</div>
-                </a>
-           </div>
            <div class="admin-content">
                
                 <div id="admin-localization">
@@ -145,19 +136,19 @@
                                     </svg>
 
                                     <a class="delete-link" onclick="return confirm('Deseja realmente excluir o registro?');
-                                    " href="db/deleteDate.php?modo=deleteLocal&id=<?=$rsLocal['idLocation']?>">
+                                    " href="db/deleteDate.php?modo=deleteLocal&constraint=<?=$constraint?>&id=<?=$rsLocal['idLocation']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </a>
 
-                                    <a class="delete-link" href="localConfig.php?modo=edit&id=<?=$rsLocal['idLocation']?>">
+                                    <a class="delete-link" href="localConfig.php?modo=edit&constraint=<?=$constraint?>&id=<?=$rsLocal['idLocation']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete option-icon">
                                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                         </svg>
                                     </a>
                                     
-                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayLocal&id=<?=$rsLocal['idLocation']?>">
+                                    <a class="delete-link" href="db/displayUpdate.php?modo=displayLocal&constraint=<?=$constraint?>&id=<?=$rsLocal['idLocation']?>">
                                         <?php
                                             if($rsLocal['display'] == true){
                                                 echo("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='use option-icon'> 

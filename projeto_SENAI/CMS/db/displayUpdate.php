@@ -1,5 +1,7 @@
 <?php
 
+    $constraint = $_GET['constraint'];
+
     if(isset($_GET['modo'])){
         if($_GET['modo'] == 'displayCuriosity'){
 
@@ -24,7 +26,7 @@
                         echo("
                         <script> 
                             alert('Curiosidade removida do site');
-                            location.href = '../curiosityConfig.php';
+                            location.href = '../curiosityConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                 }
@@ -40,7 +42,7 @@
                         echo("
                         <script> 
                             alert('Curiosidade sendo exibida no site!');
-                            location.href = '../curiosityConfig.php';
+                            location.href = '../curiosityConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                     }
@@ -70,7 +72,7 @@
                         echo("
                         <script> 
                             alert('Informação removida do site!');
-                            location.href = '../aboutConfig.php';
+                            location.href = '../aboutConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                 }
@@ -86,7 +88,7 @@
                         echo("
                         <script> 
                             alert('Informação sendo exibida no site!');
-                            location.href = '../aboutConfig.php';
+                            location.href = '../aboutConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                     }
@@ -116,7 +118,7 @@
                         echo("
                         <script>
                             alert('Local removido do site!'); 
-                            location.href = '../localConfig.php';
+                            location.href = '../localConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                 }
@@ -132,7 +134,7 @@
                         echo("
                         <script> 
                             alert('Local sendo exibido no site!');
-                            location.href = '../localConfig.php';
+                            location.href = '../localConfig.php?constraint=".$constraint."';
                         </script>                                              
                     ");
                     }

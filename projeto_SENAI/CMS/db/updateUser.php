@@ -7,18 +7,21 @@
             require_once('connection.php');
             $connect = connectionMySQL();  
 
+            $constraint = $_GET['constraint'];
+
             $id = $_GET['id'];
 
             if(isset($_POST['saveButton'])){       
                 
                 $password = md5($_POST['password']);
+                $nick = $_POST['nick'];
 
-                $sql = "select tblUser.userpassword from tblUser where idUser = ".$id;
+                $sql = "select tblUser.userpassword, tblUser.nickname from tblUser where idUser = ".$id;
                 
-                $getPassword = mysqli_query($connect, $sql);
+                $getUser = mysqli_query($connect, $sql);
 
-                if ($rsPassword = mysqli_fetch_assoc($getPassword)) {
-                    if ($password == $rsPassword['userpassword']) {
+                if ($rsUser = mysqli_fetch_assoc($getUser)) {
+                    if ($password == $rsUser['userpassword'] && $nick == $rsUser['nickname']) {
 
                         $mainName = $_POST['name'];
                         $surname = $_POST['surname'];
@@ -26,14 +29,7 @@
 
                         $email = $_POST['email'];
                         $cpf = $_POST['cpf'];
-                        $newpassword = $_POST['newpassword'];
-                        if ($newpassword == null) {
-                            $newpassword = md5($_POST['password']);
-                            echo($newpassword);
-                        }else{
-                            $newpassword = $_POST['newpassword'];
-                            echo($newpassword);
-                        }
+                        
                         $cellphone = $_POST['cellphone'];
                         $tellphone = $_POST['tellphone'];
 
@@ -42,11 +38,27 @@
                         $nascimento = explode("/", $_POST['birth']);
                         $birth = $nascimento[2]."-".$nascimento[1]."-".$nascimento[0];
 
+                        $newnick = $_POST['newnick'];
+                        $newpassword = $_POST['newpassword'];
+
+                        if ($newnick == null) {
+                            $newnick = $_POST['nick'];
+                        }else{
+                            $newnick = $_POST['newnick'];
+                        }
+                        
+                        if ($newpassword == null) {
+                            $newpassword = md5($_POST['password']);
+                        }else{
+                            $newpassword = md5($_POST['newpassword']);
+                        }
+
                         $sql = "update tblUser set
 
                                 username = '".$name."',
                                 email = '".$email."',
                                 cpf = '".$cpf."',
+                                nickname = '".$newnick."',
                                 userpassword = '".$newpassword."',
                                 cellphone = '".$cellphone."',
                                 tellphone = '".$tellphone."',
@@ -59,7 +71,7 @@
                             echo("
                                 <script> 
                                     alert('Registro editado com sucesso!');
-                                    location.href = '../user.php';
+                                    location.href = '../user.php?constraint=".$constraint."';
                                 </script>
                                     
                             ");
@@ -67,17 +79,13 @@
                             echo($sql);  
                         }
                     }else{
-                        echo("Senha Atual Incorreta");
+                    echo("<script> 
+                        alert('Usuario ou senha incorreto!') 
+                        window.history.back();
+                    </script>");   
                     }
                 }
 
-            }else{
-                echo("
-                    <script> 
-                        location.href = '../user.php';
-                    </script>
-            
-                ");
             }
         }      
     }

@@ -14,6 +14,9 @@
 }
 
 .title-newuser{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
     background-color: #1e1e1e;
     height: 45px;
     text-align: center;
@@ -27,10 +30,10 @@
 .form-create{
     display: grid;
     grid-template-areas: 
+        "nick password"
         "name surname"
         "email email"
-        "cpf password"
-        "birth birth"
+        "cpf birth"
         "cellphone tellphone"
         "permission permission"
         "buttons buttons";
@@ -41,7 +44,8 @@
 .form-edit{
     display: grid;
     grid-template-areas: 
-        "password newpassword"
+        "nick password"
+        "newnick newpassword"
         "email email"
         "cpf cpf"
         "name surname"
@@ -54,6 +58,8 @@
 }
 
 /*Register*/
+#nick{ grid-area: nick;}
+#newnick{ grid-area: newnick;}
 #name{ grid-area: name;}
 #surname{ grid-area: surname;}
 #cpf{ grid-area: cpf;}

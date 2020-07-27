@@ -5,6 +5,8 @@
             require_once('connection.php');
             $connect = connectionMySQL();
 
+            $constraint = $_GET['constraint'];
+
             if(isset($_POST['saveCuriosity'])){
                 $title = $_POST['titleCuriosity'];
                 $textCuriosity = $_POST['textCuriosity'];
@@ -21,7 +23,7 @@
                     echo("
                         <script> 
                             alert('curiosidade criada com sucesso!');
-                            location.href = '../curiosityConfig.php';
+                            location.href = '../curiosityConfig.php?constraint=".$constraint."';
                         </script>                  
                     ");
 
@@ -44,12 +46,11 @@
                     echo("
                     <script> 
                         alert('Criado com sucesso!');
-                        location.href = '../aboutConfig.php';
+                        location.href = '../aboutConfig.php?constraint=".$constraint."';
                     </script>                  
                     ");
 
                 }else {
-                    echo($sql);
                     echo($sql);
                 }
             }elseif (isset($_POST['saveLocal'])) {
@@ -70,7 +71,7 @@
                     echo("
                     <script> 
                         alert('Local criado com sucesso!');
-                        location.href = '../localConfig.php';
+                        location.href = '../localConfig.php?constraint=".$constraint."';
                     </script>                  
                     ");
 
